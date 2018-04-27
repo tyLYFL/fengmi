@@ -1,0 +1,58 @@
+<view class="container">
+
+  <image src='http://7xoor9.com1.z0.glb.clouddn.com/AuditIcon.png' mode='widthFix' class='authEndImg' wx:if="{{authenticationInfo.auditstate==1}}"></image>
+   <image src='http://7xoor9.com1.z0.glb.clouddn.com/A.png' mode='widthFix' class='authEndImg' wx:if="{{authenticationInfo.auditstate==2}}"></image>
+    <image src='http://7xoor9.com1.z0.glb.clouddn.com/AUditIcon_warn.png' mode='widthFix' class='authEndImg' wx:if="{{authenticationInfo.auditstate==3}}"></image>
+
+  <view  class='authResult color33'  wx:if="{{authenticationInfo.auditstate==1}}">提交成功，等待审核</view>
+  <view class='color33'  wx:if="{{authenticationInfo.auditstate==1}}">提交时间：{{authenticationInfo.createtime}}</view>
+  <view  wx:if="{{authenticationInfo.auditstate==1}}">（三个工作日内完成审核）</view>
+   
+   <view  wx:if="{{authenticationInfo.auditstate==2}}" style='margin-top:40rpx;'>
+    <view class='text'>审核成功</view>
+     <view>审核时间:{{authenticationInfo.audittime}}</view>
+   </view>
+
+    <view  wx:if="{{authenticationInfo.auditstate==3}}">
+    <view style='text-align:center;margin-top:50rpx;'>审核失败</view>
+    <view>审核时间:{{authenticationInfo.audittime}}</view>
+   </view>
+</view>
+
+<view  wx:if="{{authenticationInfo.auditstate==1}}">
+  <view class="foot_div">
+    <text style='color:#333;font-size:32rpx;'>
+      认证投资人特权：
+    </text>
+    <text class='font'>认证投资人后可进行小额跟投</text>
+  </view>
+
+  <button class='authInvestPeople'  bindtap='toInvestHobby' style='background:#FFDB60;color:rgb(100,100,100);' wx:if="{{isUploadTo==1}}">设置我的投资偏好</button>
+
+
+ <button class='authInvestPeople'  bindtap='lookAuthentication2' style='background:#FFDB60;color:rgb(100,100,100);' wx:else>查看提交的内容</button>
+
+</view>
+
+
+<view  wx:if="{{authenticationInfo.auditstate==2}}">
+  <view class="foot_div">
+    <text style='color:#333;font-size:32rpx;'>
+      认证投资人特权：
+    </text>
+    <text class='font'>认证投资人后可进行小额跟投</text>
+  </view>
+
+  <button class='authInvestPeople'  bindtap='lookAuthentication' style='background:#FFDB60;color:rgb(100,100,100);'>更新认证内容</button>
+</view>
+
+<view  wx:if="{{authenticationInfo.auditstate==3}}" class='auditstateFail'>
+    <view class='checkFail'>审核失败原因：</view>
+    <view class='checkFailDes'>{{authenticationInfo.auditdesc}}</view>
+    <view class='authInvestBtn'>
+       <button class='authInvestPeople3'  bindtap='lookAuthentication' style='background:#FFDB60;color:rgb(100,100,100);{{userLabelLVFlag?"":"width:80%"}}'>重新提交认证</button>
+  <button class='authInvestPeople3'  bindtap='closeUpdateAuthen' style='border:1rpx solid #FFDB60;color:rgb(230,173,20);' data-assetsId='{{authenticationInfo.id}}' wx:if="{{userLabelLVFlag}}">取消更新</button>
+    </view>
+</view>
+
+<view style='height:50rpx;'></view>

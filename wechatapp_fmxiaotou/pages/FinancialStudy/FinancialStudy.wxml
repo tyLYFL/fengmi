@@ -1,0 +1,100 @@
+<scroll-view class="bigWrap" id='sr'  scroll-y="true"  bindscroll="scroll"  >
+<view class="FinStudy-box">
+   <view class="FinStudy-nav">
+   <view class="Financial {{currentTab==0 ? 'on' : ''}}" bindtap="SwitchNav" data-key="0" >提升财商
+   <view class='line'></view>
+   </view>
+   <view class="Financial {{currentTab==1 ? 'on' : ''}}" bindtap="SwitchNav" data-key="1">项目实战
+   <view class='line'></view>
+   </view>
+   </view>
+   <view class='section-box'>
+   <!-- <view style='width:300rpx;height:2000rpx;background:red'>1</view>
+   <view style='width:300rpx;height:2000rpx;background:#000'>2</view>
+   <view style='width:300rpx;height:300rpx;background:#eee'>3</view>
+   <view style='width:300rpx;height:300rpx;background:#bbb'>4</view> -->
+     <block class='Financial-box' wx:if="{{currentTab==0}}">
+     <view class='FinancialList'  wx:for="{{FinanceData}}" wx:key="index"    bindtap='tapList'      data-id='{{item.id}}'>
+      <view class='Financial-Img'>
+      <image src='{{item.financePic}}'  mode="widthFix"></image>
+      </view>
+      <view class='Financial-BigBox'>
+     <view class='Financial-titleBox'>
+        <view class='study-stateBox'>
+        <view class='study-state'>学员免费</view>
+        <view class='bo1'></view>
+        <view class='bo2'></view>
+        </view>
+        <view class='Financial-title'>{{item.financeTitle}}</view>
+     </view>
+     <view class='Financial-details'>
+     <view class='Financial-detailChild'>
+     <view class='item-color'>{{item.financeStartTime}}~{{item.financeEndTime}}</view>
+     <view>上课时间</view>
+     </view>
+     <view class='Financial-detailChild Fdetail-borderP'> 
+     <view class='Fdetail-borderL'></view>
+     <view class='item-color'>{{item.financeCity}}</view>
+     <view>上课城市</view>
+     <view class='Fdetail-borderR'></view>
+     </view>
+     <view class='Financial-detailChild '> 
+     <view class='item-color'>{{item.financeCost}}</view>
+     <view>课程价值</view>
+     </view>
+     <view class='Financial-detailChild'>
+        <view class="circleProgress_wrapper">
+        <view class="wrapper right">
+            <view class="circleProgress rightcircle" 
+            style='-webkit-transform: rotate({{item.appiontments>180?45:-135+item.appiontments}}deg);'>
+            </view>
+        </view>
+        <view class="wrapper left">
+            <view class="circleProgress leftcircle" 
+            style='-webkit-transform: rotate({{item.appiontments-180>0?-315+item.appiontments:-135}}deg)'>
+            </view>
+        </view>
+        <view class='circleProgressNumBox'>
+        <view class='circleProgressNum'>
+         <view class='circleNum'>{{item.appiontments/360*item.financeOverbook}}</view>
+         <view class='circleborderBox'><view class='circleborder'></view></view>
+         <view class='circlemath'>{{item.financeOverbook}}</view>
+        </view>
+        </view>
+     </view>     
+     </view>
+     </view>
+     </view>
+     </view>
+     </block>
+
+     <block class='Financial-box' wx:else  >
+     <view class='FinancialList'  wx:for="{{FinanceData1}}" wx:key="index"  bindtap='tapStruts'      data-id='{{item.id}}'>
+<view class='Financial-Img'>
+      <image src='{{item.projectPic}}'  mode="widthFix"></image>
+      </view>
+       <view class='Financial-BigBox'>
+     <view class='Financial-titleBox'>
+        <view class='study-stateBox'>
+        <view class='study-state'>{{item.projectMonth}}</view>
+        <view class='bo1'></view>
+        <view class='bo2'></view>
+        </view>
+        <view class='Financial-title'>{{item.projectTitle}}</view>
+     </view>
+     </view>
+     </view>
+      
+     </block>
+   </view>
+</view>
+
+<view class="DetailLike {{currentTab==0 ? 'DetailLikehide' : ''}} {{DetailLikeopcity==0 ? 'DetailLikehide' : ''}}"  bindtap='Detailindex'  >
+<image src='../../images/DetailsLike.png'></image>
+</view>
+
+<view class="DetailLike {{currentTab==1 ? 'DetailLikehide' : ''}} {{DetailLikeopcity==0 ? 'DetailLikehide' : ''}}"  bindtap='Studyindex'>
+<image src='../../images/DetailsLike.png' ></image>
+</view>
+
+</scroll-view>

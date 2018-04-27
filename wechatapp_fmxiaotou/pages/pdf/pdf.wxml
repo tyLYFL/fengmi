@@ -1,0 +1,9 @@
+<view class="box" bindtap='seePdf'>
+    <text class="ziliao">以下资料为非公开资料，请勿私下传播</text>
+    <view class="bg">
+        <image class="img" src="../../images/pdfbg.png"></image>
+        <view class="son">{{filename}}</view>
+        <view class="pdf">pdf</view>
+        <image src="{{isFollow==0?'http://7xoor9.com1.z0.glb.clouddn.com/lock.png':'http://7xoor9.com1.z0.glb.clouddn.com/lock_n.png'}}" class="lock"></image>
+    </view>
+</view>

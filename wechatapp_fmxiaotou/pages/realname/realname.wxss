@@ -1,0 +1,100 @@
+page{
+ font-size: 30rpx; 
+ color: rgba(150, 150, 150, 1);
+}
+.hoverclass{
+  background:#FFDB54;
+  color: #969696;
+}
+.top_desc_div {
+	text-align: center;
+	width: 100%;
+  margin-top: 50rpx;
+}
+.zhimaTitle{
+  text-align: center;
+  padding: 50rpx 0;
+  color: #333;
+  font-size: 40rpx;
+}
+
+ .top_zhimai_flow{
+ 	width: 100%;
+ 	text-align: center;
+ }
+
+.realname_div{
+  margin-top: 20px;
+	width: 100%;
+  display: -webkit-flex;
+  flex-direction: column;
+}
+.realnameInputBox,.certificateInputBox{
+    display: -webkit-flex;
+    align-items: center;
+    margin-bottom: 50rpx;
+    margin-left: 50rpx;
+    margin-right: 50rpx;
+    border-bottom: 1rpx solid #e7e7e7;
+    padding-bottom: 16rpx;
+}
+.realname_div input{
+  	width: 200px;
+  	height: 30px;
+  	border:none;
+  	margin-left: 8px;
+  	padding-left: 5px;
+  	outline: none;
+}
+.certificateInputBox text{
+  text-align: right;
+}
+
+
+.getCode{
+  background:#FFDB60;
+  color:rgb(100,100,100);
+  border: none!important;
+  outline: none;
+}
+.Vcode{
+  width: 375rpx!important;
+}
+.sendVcode,.timeDown{
+  background: #FFDB60;
+  color: rgb(100, 100, 100);
+  border-radius: 10rpx;
+  font-size: 24rpx;
+  padding: 10rpx;
+}
+.timeDown{
+  background: #969696;
+}
+  button{
+  	width: 95%;
+  	margin-right: 30px;
+  	margin-left: 30px;
+  	background: #af8736;
+  	color: white;
+  	font-size: 18px;
+  	border-radius: 5px;
+  	height:45px ;
+  	line-height: 45px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 27px;
+  }
+
+ .foot_div{
+  	margin-left: 20px;
+  	padding-bottom: 20px;
+    line-height: 50rpx;
+  }
+  .foot_div span{
+  	font-size: 17px;
+  	color: #000000;
+  }
+   .foot_div font{
+   	font-size: 15px;
+   	color: #C0C0C0;
+   }

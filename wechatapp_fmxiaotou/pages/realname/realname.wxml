@@ -1,0 +1,52 @@
+
+<view class="top_desc_div">
+    <image src='http://7xoor9.com1.z0.glb.clouddn.com/authorMsgIcon.png' mode="widthFix" style='width:24rpx;height:24rpx;'></image>
+    <text>  我们注重信息保护，所填信息仅供审核使用</text>
+</view>
+
+  <view class='zhimaTitle'>疯蜜小投实名认证</view>
+  <view class="top_zhimai_flow">
+
+  <image src="http://7xoor9.com1.z0.glb.clouddn.com/mine_carAuth.png" mode='widthFix'></image>
+</view>
+
+<form bindsubmit='meadiacertification'>
+
+  <view class="realname_div">
+    <view class='realnameInputBox'>
+      <text>真实姓名 </text>
+      <input id="name" type='text' name='realName' placeholder='请输入姓名'></input>
+    </view>
+    <view class='certificateInputBox'>
+      <text>身份证号 </text>
+      <input id="num" type='idcard' name='cartdId' placeholder='请输入身份证号码'></input>
+    </view>
+    <view class='certificateInputBox'>
+      <text>银行卡号</text>
+      <input type='number' name='cardNo' placeholder='请输入银行卡号'></input>
+    </view>
+
+    <view class='certificateInputBox'>
+      <text>手机号</text>
+      <input type='number' class='Vcode' name='phoneNo' bindinput='gettelePhone' placeholder='请输入银行预留手机号'></input>
+       <view bindtap="vcode" class="sendVcode" wx:if="{{VcodeFlag}}" bindtap='sendVcode'>获取验证码</view> 
+       <view class="timeDown" wx:else>{{VcodeTime}}s重新发送</view> 
+    </view>
+
+    <view class='certificateInputBox'>
+      <text>验证码</text>
+      <input type='number' name='Vcode' placeholder='请输入验证码'></input>
+    </view>
+  </view>
+
+
+<view class="foot_div">
+  <text style='color:#333;font-size:32rpx;'>
+    实名认证特权：
+  </text>
+  <text>实名认证提高安全保障，平台优先考虑跟投需求。</text>
+</view>
+
+    <button style='background:#FFDB60;color:rgb(100,100,100);margin-bottom:50rpx;' form-type='submit' hover-class='hoverclass'>立即认证</button>
+
+</form>

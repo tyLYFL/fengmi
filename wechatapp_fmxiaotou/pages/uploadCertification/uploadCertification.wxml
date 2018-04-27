@@ -1,0 +1,27 @@
+<view class='top'>上传个人资产或投资证明</view>
+<view>(房产、汽车、银行流水或投资凭证等)</view>
+
+<!-- <view class='certifitImgBox'>
+ <view class='errorIcon'>×</view>
+ <image class='upload' src='https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516958569408&di=1834b4897dd0dee552c7d5122052ca07&imgtype=0&src=http%3A%2F%2Fpic5.nipic.com%2F20091228%2F3126697_220910038365_2.jpg' mode='widthFix'></image>
+</view> -->
+
+<view class='certifitImgBox' wx:for="{{imageArry}}" wx:key="index">
+ <view class='errorIcon1' bindtap='delImg' data-index='{{index}}' hidden='{{isdisableFlag}}'>
+    <view class='errorIcon'></view>
+  </view>
+   <image class='upload' src="{{item}}" mode='center' data-index='{{index}}' bindtap='preViewImg'></image>
+</view>
+
+ <view class='uploadImgBox' bindtap='didPressChooesImage' wx:if="{{imageArry.length==0}}" >
+  <image class='upload' src='http://7xoor9.com1.z0.glb.clouddn.com/upload.png' mode='widthFix'></image>
+</view> 
+
+ <view class='uploadImgBox' bindtap='didPressChooesImage' wx:if="{{imageArry.length<5&&imageArry.length>0}}" >
+  <image class='upload' src='http://7xoor9.com1.z0.glb.clouddn.com/uploadMore.png' mode='widthFix'></image>
+</view> 
+
+
+<view hidden='{{imageArry.length==5}}'>{{imageArry.length==0?"可以上传1-5张图片证明":'还可上传'+(5-imageArry.length)+'张图片证明'}}</view>
+
+<button class='subcertification' bindtap='authenticationV2'>提交认证</button>

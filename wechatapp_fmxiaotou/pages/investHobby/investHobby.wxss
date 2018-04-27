@@ -1,0 +1,78 @@
+.hobbyBox{
+  margin:10rpx 30rpx;
+}
+.hoddyTitle{
+  display: -webkit-flex;
+  align-items: center;
+}
+.line{
+  width: 8rpx;
+  height: 20px;
+  background:#FFDB60; 
+}
+.hoddyTileTxt{
+  margin-left: 20rpx;
+   font-size: 30rpx;
+}
+.hobbyItem{
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+  padding-bottom: 50rpx;
+  border-bottom:1rpx solid #e7e7e7; 
+  position: relative;
+}
+.hobbyItemCon{
+  border: 1rpx solid #e7e7e7;
+  padding: 20rpx 18rpx;
+  margin-right: 10rpx;
+  text-align: center;
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
+.hobbyItemCon.active{
+  background:rgb(255,219,96);
+  color:#fff;
+  border:1rpx solid #fff;
+}
+.zhiTxt{
+  margin: 0 30rpx;
+}
+.wangTxt{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+.moneyTypeTxt{
+  width: 80rpx;
+  font-size: 24rpx;
+  border: 1rpx solid #e7e7e7;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  position: relative;
+}
+
+input{
+  border: 1rpx solid #e7e7e7;
+  width: 180rpx;
+  padding-left: 4rpx;
+}
+/*向下*/
+.triangle_border_down{
+    width:0;
+    height:0;
+    border-width:10rpx 10rpx 0;
+    border-style:solid;
+    border-color:#E6AD14 transparent transparent;/*灰 透明 透明 */
+  	transition: transform .5s;
+  	transform:rotate(0deg);
+  	cursor: pointer;
+    position: absolute;
+    top:19rpx;
+    right:10rpx;
+}
+
+.triangle_border_down.transition{
+	transform:rotate(180deg);
+}

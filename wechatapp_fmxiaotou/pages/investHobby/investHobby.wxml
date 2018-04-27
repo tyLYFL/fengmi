@@ -1,0 +1,62 @@
+<form bindsubmit='addUInvestPreference'>
+<view class='hobbyBox'>
+  <view class='hoddyTitle'>
+    <view class='line'></view>
+    <view class='hoddyTileTxt'>单笔投资额度</view>
+  </view>
+  <view class='hobbyItem'>
+     <input type='number' name="investSumMin" value='{{preference.investSumMin}}'></input>  <text class='zhiTxt'>至</text>  <input type='number' name="investSumMax"  value='{{preference.investSumMax}}'></input>  <text class='wangTxt'>万 </text>
+      <picker bindchange="moneyTypePickerChange" value="{{money}}" range="{{MoneyUnitArry}}">
+        <view class='moneyTypeTxt'>{{money}}
+         <text class='triangle_border_down'></text>
+        </view>
+      </picker>
+  </view>
+</view>
+
+<view class='hobbyBox'>
+  <view class='hoddyTitle'>
+    <view class='line'></view>
+    <view class='hoddyTileTxt'>关注领域</view>
+  </view>
+  <view class='hobbyItem'>
+    <view wx:for="{{infoBebans1}}"  class='hobbyItemCon {{item.isSelect?"active":""}}' wx:key="index" data-id='{{item.id}}' data-isSelect='{{item.isSelect}}' bindtap='tapItemUniverse'>{{item.name}}</view>  
+    <!-- <view class='hobbyItemCon'>社交</view>   -->
+  </view>
+</view>
+
+<view class='hobbyBox'>
+  <view class='hoddyTitle'>
+    <view class='line'></view>
+    <view class='hoddyTileTxt'>关注轮次</view>
+  </view>
+  <view class='hobbyItem'>
+    <view  wx:for="{{infoBebans2}}"  class='hobbyItemCon {{item.isSelect?"active":""}}' wx:key="index" data-id='{{item.id}}'   bindtap='tapItemRound'>{{item.name}}</view>  
+    <!-- <view class='hobbyItemCon'>天使轮</view>   -->
+  </view>
+</view>
+
+<view class='hobbyBox'>
+  <view class='hoddyTitle'>
+    <view class='line'></view>
+    <view class='hoddyTileTxt'>回报方式</view>
+  </view>
+  <view class='hobbyItem'>
+    <view class='hobbyItemCon  {{preference.returnWay==1?"active":""}}' data-key='1' bindtap='returnWayFn' >定期分红</view>  
+    <view class='hobbyItemCon {{preference.returnWay==2?"active":""}}' data-key='2' bindtap='returnWayFn'  >天使轮</view>  
+  </view>
+</view>
+
+<view class='hobbyBox'>
+  <view class='hoddyTitle'>
+    <view class='line'></view>
+    <view class='hoddyTileTxt'>知名机构/人投资</view>
+  </view>
+  <view class='hobbyItem'>
+    <view class='hobbyItemCon {{preference.isFamousInvestor==1?"active":""}}' data-key='1' bindtap='isFamousInvestorFn' >是</view>  
+    <view class='hobbyItemCon {{preference.isFamousInvestor==0?"active":""}}' data-key='0' bindtap='isFamousInvestorFn'>否</view>  
+  </view>
+</view>
+<button style='background:#FFDB60;color:rgb(100,100,100);width:80%;margin-top:100rpx;'  form-type='submit'>保存</button>
+<view style='height:80rpx;'></view>
+</form>

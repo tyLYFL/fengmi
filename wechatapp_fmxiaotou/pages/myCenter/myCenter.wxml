@@ -1,0 +1,39 @@
+<view class="header">
+    <image src="{{userInfo. headpic || 'http://7xoor9.com1.z0.glb.clouddn.com/312612727989663389.png'}}"></image>
+    <image class='touxiangIcon' src='{{userIconSrc}}'    wx:if='{{istouziren}}'></image>
+    <view class="shenfen"><image class='{{istouziren?"acOn":""}}' src="{{sex}}"></image><text class="name">{{userInfo. nickname}}</text>
+      <image class="touziren" wx:if="{{istouziren}}" src='{{shatouzi}}'></image>
+    </view>
+</view>
+<view class="proBox">
+    <!-- <view class="want" bindtap="wantFollow">想跟投的项目 <span>{{userInfo.investprojectcount}}></span></view> -->
+    <!-- <view class="success" bindtap="wantSuccess">跟投成功的项目<span>{{userInfo.myInvestprojectcount}}></span></view> -->
+    <view class="want" bindtap="rollName">疯蜜学籍 <span>  {{rollStatus}} <icon class='iconfont icon-jiantou'></icon></span> </view>
+
+        <!-- <view class="want" bindtap="torealName">实名认证 <span>  {{trueName}} <icon class='iconfont icon-jiantou'></icon></span> </view> -->
+        
+    <!-- <view class="want" bindtap="toauthInvestPeople">认证投资人{{investauthen!="去认证"?"":"(优先跟投好项目)"}}<span> {{investauthen}} ></span> </view> -->
+     <view class="want" bindtap="toInvestHobby">投资偏好 <span><icon class='iconfont icon-jiantou'></icon></span> </view>
+    
+
+    <view class="want" bindtap="wantFollow">跟投管理中心<span> {{userInfo.investprojectcount+userInfo.myInvestprojectcount}}  <icon class='iconfont icon-jiantou'></icon> </span></view>
+    <view class="shoucang" bindtap="goShoucang">收藏的项目<span>{{userInfo.investprojectcollectcount}}  <icon class='iconfont icon-jiantou'></icon></span></view>
+</view>
+
+<view class="about">
+    <view class="userAgreement" bindtap="goUserAgreement">用户协议 <span>   <icon class='iconfont icon-jiantou'></icon></span></view>
+    <view class="aboutUs" bindtap="goAboutUs">关于我们 <span>  <icon class='iconfont icon-jiantou'></icon></span></view>
+</view>
+<view class="logout" bindtap="register">退出登录</view>
+<!-- <view class="more">更多功能，请下载"疯蜜小投"app</view> -->
+<view style='height:20rpx;'></view>
+<view class="logouting" wx:if="{{logouting}}">
+    <view class="logoutSuccess">退出成功</view>
+    <view>{{logoutTime}}秒后跳转至首页...</view>
+</view>
+
+<!-- 
+<import src="../tabBar/tabBar.wxml"/>
+<view class="footer">
+    <template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view> -->

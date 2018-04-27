@@ -1,0 +1,56 @@
+page{
+ font-size: 30rpx; 
+ color: rgba(150, 150, 150, 1);
+ text-align: center;
+}
+.top{
+  margin-top:40rpx;
+}
+.certifitImgBox,.uploadImgBox{
+  position: relative;
+  width: 750rpx;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50rpx;
+}
+.errorIcon1{
+  width: 100rpx;
+  height:100rpx;
+  position: absolute;
+  top:-11rpx;
+  right:-35rpx;
+}
+.errorIcon{
+  width: 20px;
+  height:5px; 
+  transform: rotate(45deg);
+  background: red;
+  color: #fff;
+  border-radius: 50%;
+}
+.errorIcon:after{
+  content:'';
+  display:block;
+  width: 20px;
+  height:5px; 
+  background: red;
+  transform: rotate(-90deg);
+   border-radius: 50%;
+}
+.uploadImgBox{
+  margin: 50rpx auto;
+}
+.upload{
+   padding: 10rpx;
+  border: 1rpx dashed #969696;
+  border-radius: 10rpx;
+}
+
+.subcertification{
+  width: 80%;
+  border: none!important;
+  margin-top:100rpx;
+  background-color: #FFDB60!important;
+  color: rgb(100, 100, 100);
+  margin-bottom: 40rpx;
+}

@@ -1,0 +1,12 @@
+<image src="../../images/register.png"></image>
+<view class="box">
+    <view class="username">
+    <input type="text" bindinput="getappUser" type="number" maxlength="11" value="{{appUser}}" placeholder="请输入疯蜜小投账号"/>
+    </view>
+    <view class="password"><input type="password" bindinput="getappPassword" maxlength="16" value="{{appPassword}}" placeholder="请输入密码"/></view>
+
+    <view class="login {{isyellow}}" bindtap="loginByapp">登录</view>
+    <view class="or"><text></text>或<text></text></view>
+
+    <button class="loginbyWx" open-type="getUserInfo" bindgetuserinfo="getUserInfo"><image src="../../images/wxlogin.png"></image>使用微信快速登录</button>
+</view>

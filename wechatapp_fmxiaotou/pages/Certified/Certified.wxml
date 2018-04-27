@@ -1,0 +1,22 @@
+<view class="container">
+  <image src='http://7xoor9.com1.z0.glb.clouddn.com/authcertified.png' mode='widthFix' class='authEndImg'></image>
+</view>
+
+ <view class="realname_div">
+    <view class='realnameInputBox'>
+      <text style='fnt-size:24rpx;width:100rpx;'>姓名 </text>
+      <input id="name" type='text' name='realName' disabled="true" value='{{realName}}'></input>
+    </view>
+    <view class='certificateInputBox'>
+      <text style='fnt-size:24rpx;width:200rpx;'>身份证号 </text>
+      <input id="num" type='idcard' name='cartdId' disabled="true" value='{{identityCard}}'></input>
+    </view>
+  </view>
+
+
+<view class="foot_div">
+  <text style='color:#333;font-size:32rpx;'>
+    实名认证特权
+  </text>
+  <text class='font'>实名认证提高安全保障，平台优先考虑跟投需求。</text>
+</view>

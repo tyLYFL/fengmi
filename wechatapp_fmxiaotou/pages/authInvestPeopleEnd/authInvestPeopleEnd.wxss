@@ -1,0 +1,69 @@
+page{
+  color: rgb(150, 150, 150);
+}
+
+.authEndImg{
+  width: 162rpx;
+  height: 162rpx;
+}
+.authResult{
+  margin-top: 40rpx;
+}
+.container view{
+  font-size: 30rpx;
+  text-align:center;
+}
+
+ .foot_div{
+  	background-color: #F7F7F7;
+  	margin-top: 50px;
+  	padding-left: 20rpx;
+    padding-right: 20rpx;
+    padding-bottom: 40rpx;
+    border-radius: 6rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+  }
+  .foot_div span{
+  	font-size: 34rpx;
+  	color: #000000;
+  }
+   .foot_div .font{
+   	font-size: 30rpx;
+   	color: #C0C0C0;
+   }
+
+.authInvestPeople{
+  width: 80%;
+  margin-top: 80rpx;
+}
+
+.authInvestBtn{
+  display: -webkit-flex;
+  justify-content: space-between;
+  margin-top: 120rpx;
+}
+.authInvestPeople3{
+  width: 40%;
+  font-size: 30rpx;
+}
+
+.auditstateFail{
+  margin: 30rpx
+}
+.checkFail{
+  background: #F7F7F7;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
+   font-size: 28rpx;
+  border-top-left-radius: 6rpx;
+  border-top-right-radius: 6rpx;
+}
+.checkFailDes{
+  background: #F7F7F7;
+  padding-bottom: 20rpx;
+  padding-left: 10rpx;
+  font-size: 24rpx;
+  border-bottom-left-radius: 6rpx;
+  border-bottom-right-radius: 6rpx;
+}

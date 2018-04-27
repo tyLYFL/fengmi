@@ -1,0 +1,32 @@
+<import src="../../wxParse/wxParse.wxml"/>
+<view class='FinancialList'>
+      <view class='Financial-titleB'>
+<view class='Financial-Img'>
+      <image src='{{FinanceData.projectPic}}' mode="widthFix"></image>
+      </view>
+
+        <view class='Financial-titleBox'>
+        <view class='study-stateBox'>
+        <view class='study-state'>{{FinanceData.projectMonth}}</view>
+        <view class='bo1'></view>
+        <view class='bo2'></view>
+        </view>
+        <view class='Financial-title'>{{FinanceData.projectTitle}}</view>
+     </view>
+     </view>
+       <view class='Financial-BigBox'>
+
+      <view class='teacherDesc'>
+     <view class='DescTitle'>· 项目简介 ·</view>
+     <view class='Desccontent'>
+       <template is="wxParse" data="{{wxParseData:projectDesc.nodes}}"/>  
+     </view>
+     </view>
+     <view class='courseDesc'>
+     <view class='DescTitle'>· 路演介绍 ·</view>
+     <view class='Desccontent'>
+       <template is="wxParse" data="{{wxParseData:projectRoadShow.nodes}}"/>  
+     </view>
+     </view>
+  </view>
+    </view>  

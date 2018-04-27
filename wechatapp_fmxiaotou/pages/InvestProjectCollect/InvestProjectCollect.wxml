@@ -1,0 +1,89 @@
+<!-- <view class='header'>
+  <icon class='iconfont icon-guize' style='font-size:25px' bindtap='todetail'></icon>
+  <view class='arrowBox' bindtap='showChooseType'>
+    <text>{{status}}</text>
+    <view class='triangle_border_down {{!animationFlag?"transition":""}}'></view>
+  </view>
+  <icon class='iconfont icon-tianjia' style='font-size:25px' bindtap='tomyCenter'></icon>
+</view>
+<view style='height:80rpx'></view>
+<view class='ActionSheetBoc' animation="{{animationData}}"  style='display:block'>
+    <view  data-type='0' bindtap='hidechooseType'>全部</view>
+    <view  data-type='1' bindtap='hidechooseType'>进行中</view>
+    <view  data-type='2' bindtap='hidechooseType'>已结束</view>
+</view> -->
+
+<!--项目一-->
+<block wx:for="{{projects}}" wx:key="index">
+  <view class="box" data-id="{{item.id}}" bindtap='todetail'>
+        <view class="nameBox">
+          <image src="{{item.headPic||'http://7xoor9.com1.z0.glb.clouddn.com/312612727989663389.png'}}" width="50px" height="50px"></image>	    	
+          <view class="nickBox">
+            <view class="nickName">{{item.nickName}}</view>
+            <view class="time">{{item.createTime}}</view>
+          </view>
+        </view>
+        <view class="investlarImg">
+          <image src="{{item.investPhoto}}" alt="" mode='widthFix'></image>
+        </view>  
+        <view class="disc">
+          <view class="name">{{item.investName}}</view>
+          <view class="about" id="about"> {{item.investDeion}} </view>
+
+          <view class="progress">
+            <view class="father">
+                <view class="son" style="width:{{item.exponent*100}}%;{{item.exponent*100<80?'background-color: rgba(255,0,0, 0.521569);':'background-color: rgb(255,219,96);'}};"></view>
+            </view>
+            <view class="percent">可投指数<span>{{item.exponent*100}}%</span></view>
+          </view>
+          
+          <view class="progress">
+            <view class="father">
+              <view class="son" style="width:{{item.holdRatios<100?item.holdRatios:'100'}}%; {{item.holdRatios<80?'background-color: rgba(255,0,0, 0.521569);':'background-color: rgb(255,219,96);'}}"></view>
+            </view>
+            <view class="about">
+              <view class='percent color96'>已预约￥{{item.reservedAmount==null?"0":item.reservedAmount}}万</view>	
+              <view class="percent color96">进度 {{item.holdRatios}}% </view>
+              <view class="percent">{{item.reserveFinishDeadline}} </view>
+            </view>
+          </view>
+        </view>
+  </view>
+</block>
+<!--项目二-->
+<!-- <view class="box">
+      <view class="nameBox">
+	    	<image src="../../images/1.png" width="50px" height="50px"></image>	    	
+	    	<view class="nickBox">
+	    		<view class="nickName">胡大师</view>
+	    		<view class="time">2017年10月26日</view>
+	    	</view>
+	    </view>
+	    <view class="investlarImg">
+	    	<image src="https://oixnydddk.qnssl.com/bill/1503667348309.jpg" alt=""></image>
+	    </view>  
+	    <view class="disc">
+	    	<view class="name">爱提醒，唯一已盈利的移动医疗机构</view>
+	    	<view class="about">爱提醒生物科技有限公司成立于2015年8月，是国内首家专注于医生护士职业发展的综合型互联网企业。率先提出“私人护士”“私人医生”概念，旨在将全国闲置的医生护士资源与有需求的消费者有效对接起来，并通过聘请执业医生，执业护士，提供多种服务。
+        </view>
+
+	    	<view class="progress">
+	    		<view class="father">
+	    			<view class="son" style="width:0%; background-color: rgba(255,0,0, 0.521569);"></view>
+	    		</view>
+	    		<view class="percent">可投标指数<span>0%</span></view>
+	    	</view>
+	    	
+	    	<view class="progress">
+	    		<view class="father">
+	    			<view class="son" style="width:0%; background-color: rgba(255,0,0, 0.521569);"></view>
+	    		</view>
+	    		<view class="about">
+            <view class='percent color96'>已预约￥100，000</view>	
+		    		<view class="percent color96">进度 85% </view>
+		    		<view class="percent">剩余天数 12 </view>
+	    		</view>
+	    	</view>
+    	</view>
+</view> -->
+<view class='noData'  wx:if="{{projects.length==0||!projects}}">没有数据哦</view>

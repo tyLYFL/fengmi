@@ -1,0 +1,62 @@
+<!-- <view class='header'>
+
+  <view class='arrowBox' bindtap='showChooseType'>
+    <text>{{status}}</text>
+    <view class='triangle_border_down {{!animationFlag?"transition":""}}'></view>
+  </view>
+
+</view> -->
+
+<!-- <view style='height:80rpx'></view>
+<view class='ActionSheetBoc' animation="{{animationData}}"  style='display:block'>
+    <view  data-type='0' bindtap='hidechooseType'>全部</view>
+    <view  data-type='1' bindtap='hidechooseType'>进行中</view>
+    <view  data-type='2' bindtap='hidechooseType'>已结束</view>
+</view> -->
+<!--tab-->
+<view class="body">
+  <view class="nav bc_white">
+    <view class="{{selected?'red':'default'}}" bindtap="selected">我的预约</view>
+    <view class="{{selected1?'red':'default'}}" bindtap="selected1">跟投成功</view>
+  </view>
+</view>
+<view style='height:120rpx;'></view>
+<!--项目一-->
+<block wx:for="{{projects}}" wx:key="index">
+  <view class="box" data-id="{{item.investProject.id}}" bindtap='todetail'>
+        <view class="nameBox">
+          <image src="{{item.investProject.headPic||'http://7xoor9.com1.z0.glb.clouddn.com/312612727989663389.png'}}" width="50px" height="50px"></image>	    	
+          <view class="nickBox">
+            <view class="nickName">{{item.investProject.nickName}}</view>
+            <view class="time">{{item.investProject.createTime}}</view>
+          </view>
+        </view>
+        <view class="investlarImg">
+          <image src="{{item.investProject.investPhoto}}" alt="" mode='widthFix'></image>
+        </view>  
+        <view class="disc">
+          <view class="name">{{item.investProject.investName}}</view>
+          <view class="about" id="about"> {{item.investProject.investDeion}} </view>
+
+          <view class="progress">
+            <view class="father">
+               <view class="son" style="width:{{item.investProject.exponent*100}}%;{{item.investProject.exponent*100<80?'background-color: rgba(255,0,0, 0.521569);':'background-color: rgb(255,219,96);'}};"></view>
+            </view>
+            <view class="percent">可投指数<span>{{item.investProject.exponent*100}}%</span></view>
+          </view>
+          
+          <view class="progress">
+            <view class="father">
+              <view class="son" style="width:{{item.investProject.holdRatios<100?item.investProject.holdRatios:100}}%;{{item.investProject.holdRatios<80?'background-color: rgba(255,0,0, 0.521569);':'background-color: rgb(255,219,96);'}}"></view>
+            </view>
+            <view class="about">
+              <view class='percent color96'>已预约￥{{item.investProject.reservedAmount==null?"0":item.investProject.reservedAmount}}万</view>	
+              <view class="percent color96">进度 {{item.investProject.holdRatios}}% </view>
+              <view class="percent">{{item.investProject.reserveFinishDeadline}} </view>
+            </view>
+          </view>
+        </view>
+  </view>
+</block>
+
+<view class='noData'  wx:if="{{projects.length==0||!projects}}">没有数据哦</view>

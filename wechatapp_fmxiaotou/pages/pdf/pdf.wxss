@@ -1,0 +1,57 @@
+page{
+  width: 100%;
+  height: 100%;
+  font-family:'微软雅黑';
+  font-size: 14px;
+  color: gray;
+}
+.box{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px 10%;
+  margin: 0 auto;
+}
+.ziliao{
+  margin-top: 20px;
+  text-align: center;
+  display: block;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color:#fff;
+}
+.bg .img{
+  width: 100%;
+  height: 70%;
+  margin-top: 30px;
+}
+.son{
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%,-50%);
+  font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: keep-all;
+}
+.pdf{
+  position: absolute;
+  left: 50%;
+  top: 32%;
+  font-size: 20px;
+  transform: translate(-50%,-50%);
+}
+.lock{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  width: 40px;
+  height: 40px;
+  display: block;
+}

@@ -1,0 +1,176 @@
+page{
+  height: 100%;
+  background: #f5f5f5;
+}
+.followTip{
+  font-size: 24rpx;
+  display: -webkit-flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: #fff;
+  padding-bottom: 20rpx;
+  padding-right:8px;
+}
+.followInvestBox{
+  display: -webkit-flex;
+  flex-direction: column;
+  background: #fff;
+  width: 85%;
+  margin: 20rpx auto;
+  border-radius: 6rxp;
+  font-size: 24rpx;
+  padding: 0 30rpx;
+}
+.followInvestTop{
+  width: 100%;
+  display: -webkit-flex;
+  justify-content: space-between;
+  padding-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.AdvancePayment{
+  color: rgb(230, 173, 20);
+  font-size: 30rpx;
+}
+.followInvestCenter{
+  display: -webkit-flex;
+  flex-direction: column;
+  border-top: 1rpx dotted #ccc;
+  border-bottom: 1rpx dotted #ccc;
+  padding-bottom: 50rpx;
+}
+.followInvestCenterTitle{
+  display: -webkit-flex;
+  padding-top: 50rpx;
+}
+.followInvestCenterTitle text:nth-child(1){
+  font-size:32rpx;
+  font-weight: 600; 
+}
+.followInvestCenterTitle text:nth-child(2){
+  font-size:32rpx;
+  color: #333;
+  margin-left: 8rpx;
+}
+.followInvestCenterCon{
+  margin-top: 30rpx;
+  color: #969696;
+}
+.followInvestShare{
+  color: #969696;
+}
+.followInvestBottom{
+  display: -webkit-flex;
+  justify-content: flex-end;
+  margin-top: 50rpx;
+  padding-bottom: 30rpx;
+}
+#followInvestBtn{
+  align-self: flex-end;
+  background: rgb(255,219,96);
+  color: rgb(100, 100, 100);
+  border: none;
+  margin: 0;
+}
+
+
+/*风险提示*/
+.RiskPromptBox{
+  position: fixed;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0,0, 0.5);
+  display: -webkit-flex;
+  align-items: center;
+  z-index: 99;
+}
+.RiskPromptCon{
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 85%;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 40rpx;
+}
+.RiskIcon{
+  display: -webkit-flex;
+  justify-content: center;
+  width: 100%;
+  height: 80rpx;
+  margin-top: 50rpx;
+ 
+}
+.icon-fengxian{
+  text-align: center;
+}
+.RiskTxt{
+  display: -webkit-flex;
+  justify-content: center;
+  display: -webkit-flex;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.scrollRiskTxt{
+  height: 80%;
+  overflow-y:scroll; 
+  font-size: 24rpx;
+  text-align: justify;
+  padding-left:30rpx;
+  padding-right: 30rpx; 
+}
+.chooseRiskTip{
+  text-align: center;
+  padding: 20rpx 0rpx;
+  color: #969696;
+  font-size: 24rpx;
+}
+.RiskBtnBox{
+  display: -webkit-flex;
+  padding: 20rpx 0rpx;
+  font-size: 26rpx;
+}
+.RiskBtnL{
+  flex: 1;
+  text-align: center;
+  height: 60rpx;
+}
+.RiskBtnR{
+  flex: 1;
+  text-align: center;
+  color: rgb(230, 173, 20);
+  height: 60rpx;
+}
+/*风险提示*/
+.riskBox{
+
+    padding: 5% ;
+
+    font-family: '方正兰亭黑简体';
+
+    font-size: 22rpx;
+
+    color: #505050;
+
+    line-height: 50rpx;
+
+}
+
+.riskBox  .h3{
+
+    font-family: "微软雅黑";
+
+    font-size: 30rpx;
+
+    font-weight: bold;
+
+    color: #323232;
+
+}
+.disc{
+  text-indent: 45rpx;
+}

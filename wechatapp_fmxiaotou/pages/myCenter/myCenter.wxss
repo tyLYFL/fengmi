@@ -1,0 +1,113 @@
+/*引入tabbar的样式*/
+@import "../tabBar/tabBar.wxss";
+page{
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  height: 100%;
+  font-family: 微软雅黑;
+  font-size: 14px;
+  color: #333;
+}
+.header{
+  height: 350rpx;
+  width: 100%;
+   background-color: rgb(255,255,255); 
+  padding-top: 40rpx;
+  box-sizing: border-box;
+  border-radius: 0 0 12px 12px;
+  position: relative;
+}
+.header>image{
+  height: 120rpx;
+  width: 120rpx;
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+.header .touxiangIcon{
+  position: absolute;
+  top:131rpx;
+  right:320rpx;
+  width:37rpx;
+  height:37rpx;
+}
+.header>.shenfen{
+  width: 100%;
+  margin-top:40rpx;
+  text-align: center;
+  height: 52rpx;
+  line-height: 52rpx;
+}
+.header>.shenfen image{
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block;
+  border-radius: 50%;
+  margin-right: 20rpx;
+  vertical-align: middle;
+  margin-left:-5%;
+}
+.header>.shenfen image.acOn{
+  margin-left:11%;
+}
+.header>.shenfen .touziren{
+  margin-left: 3rpx;
+  height: 23rpx;
+  width: 101rpx;
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 0rpx;
+}
+.proBox,.about{
+  margin-top: 10px;
+  width: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.proBox>view,.about>view{
+  height: 90rpx;
+  line-height:90rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  position: relative;
+}
+.proBox>view:nth-of-type(5),.about>view:nth-of-type(2){
+border-bottom: none;
+}
+.proBox span,.about span{
+  text-align:right;
+  position: absolute;
+  right: 20rpx;
+  color: gray;
+}
+.about{
+  margin-top: 10px;
+}
+.logout{
+  background-color: #fff;
+  margin-top: 10px;
+  text-align: center;
+  height: 80rpx;
+  line-height:80rpx;
+  color: rgb(0,0,0);
+}
+.more{
+  text-align: center;
+  margin-top: 40px;
+  color: rgba(128, 128, 128, 0.64);
+  font-size: 12px;
+}
+.logouting{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-family: '微软雅黑';
+}
+.logoutSuccess{
+  margin-top: 200px;
+}
+

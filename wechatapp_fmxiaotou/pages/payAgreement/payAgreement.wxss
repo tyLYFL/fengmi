@@ -1,0 +1,27 @@
+page{
+  font-family: '微软雅黑';
+}
+.p3{
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
+}
+.tip{
+  padding: 0 20px;
+  line-height: 20px;
+}
+.box{
+  margin-top: 20px;
+  font-size: 12px;
+}
+.title{
+  padding-left: 20px;
+  margin-top: 20px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.firstSon{
+  padding: 0 15px 0 20px;
+  line-height: 20px;
+}

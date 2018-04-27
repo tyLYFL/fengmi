@@ -1,0 +1,186 @@
+     <import src="../../wxParse/wxParse.wxml"/>  
+
+
+     <view class='FinancialList' >
+      <view class='Financial-Img'>
+      <image src='{{FinanceData1.financePic}}' mode="widthFix"></image>
+      </view>
+      <view class='Financial-titleB'>
+      <view class='Financial-titleBox'>
+        <view class='study-stateBox'>
+        <view class='study-state'>{{FinanceData1.financeType==0?'总部大师':'分院定制'}}</view>
+        <view class='bo1'></view>
+        <view class='bo2'></view>
+        </view>
+        <view class='Financial-title'>{{FinanceData1.financeTitle}}</view>
+     </view>
+     </view>
+     <view class='Financial-details'>
+     <view class='Financial-detailChild'>
+     <view class='item-color'>{{FinanceData1.financeStartTime}}~{{FinanceData1.financeEndTime}}</view>
+     <view>上课时间</view>
+     </view>
+     <view class='Financial-detailChild Fdetail-borderP'> 
+     <view class='Fdetail-borderL'></view>
+     <view class='item-color'>{{FinanceData1.financeCity}}</view>
+     <view>上课城市</view>
+     <view class='Fdetail-borderR'></view>
+     </view>
+     <view class='Financial-detailChild '> 
+     <view class='item-color'>{{FinanceData1.financeCost}}</view>
+     <view>上课价值</view>
+     </view>
+     <view class='Financial-detailChild'>
+        <view class="circleProgress_wrapper">
+        <view class="wrapper right">
+            <view class="circleProgress rightcircle" 
+            style='-webkit-transform: rotate({{FinanceData1.appiontments>180?45:-135+FinanceData1.appiontments}}deg);'>
+            </view>
+        </view>
+        <view class="wrapper left">
+            <view class="circleProgress leftcircle" 
+            style='-webkit-transform: rotate({{FinanceData1.appiontments-180>0?-315+FinanceData1.appiontments:-135}}deg)'>
+            </view>
+        </view>
+        <view class='circleProgressNumBox'>
+        <view class='circleProgressNum'>
+         <view class='circleNum'>{{FinanceData1.appiontments/360*FinanceData1.financeOverbook}}</view>
+         <view class='circleborderBox'><view class='circleborder'></view></view>
+         <view class='circlemath'>{{FinanceData1.financeOverbook}}</view>
+        </view>
+        </view>
+     </view>     
+     </view>
+     </view>
+      <view class='Financial-BigBox'>
+     
+     <view class='teacherDesc'>
+     <view class='DescTitle'>· 大师简介 ·</view>
+     <view class='Desccontent'>
+       <template is="wxParse" data="{{wxParseData:oratorDesc.nodes}}"/>  
+     </view>
+     </view>
+     <view class='courseDesc'>
+     <view class='DescTitle'>· 课程介绍 ·</view>
+     <view class='Desccontent'>
+       <template is="wxParse" data="{{wxParseData:financeDesc.nodes}}"/>  
+     </view>
+     </view>
+     </view>
+     </view>
+
+<view class='mask' bindtap='closeProp'  hidden='{{animationFlag&&animationFlag2}}'></view>
+
+<!-- 一级预约表 -->
+<view class='paylifelongProp {{animationFlag?"close":"onpen"}}' animation="{{animationData}}" hidden='{{animationFlag}}'>
+   <view class='top'>
+      <view class='title' >{{currentTab==0?"付费学员免费听预约":"支付学费（单次课程）"}}</view>
+      <view class='price'>{{currentTab==0?"":"￥3000"}}</view>
+   </view>
+   <view class='center'>
+      <view class='contact'>联系方式</view>
+      <view class='contactInputBox'>
+
+        <block  wx:if="{{currentTab==0}}">
+                <input type='text'  placeholder='联系人' maxlength='4' minlength="2"  bindblur='getContactMan'></input>
+        <input type='number' bindblur='getContactPhone' placeholder='联系电话' ></input>
+        
+        <view class='checkBox1' style='margin-top:25rpx;'>
+        <view style='color:red;margin-top:15rpx'>*</view>
+        <text >预约前请确保能前往听课，预约后失约将影响信用</text>
+        </view>
+        </block>
+        <block  wx:else>
+                <input type='text'  placeholder='联系人' maxlength='4' minlength="2"  bindblur='getPayMan'></input>
+        <input type='number' bindblur='getPayPhone' placeholder='联系电话' ></input>
+        
+        <view class='checkBox1' style='margin-top:25rpx;'>
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox color='#F8CE3A'  /><text>我已阅读并同意</text>
+          </label>
+        </checkbox-group>
+        <text bindtap='topayAgreement' class='Agreement'>《付费学员服务协议》</text>
+        </view>
+        </block>
+        
+      </view>
+   </view>
+   <block>
+   <view class='wecahtPay' wx:if="{{currentTab==0}}" bindtap='getbotChild'>预约听课</view>
+   <view class='wecahtPay' wx:else bindtap='wecahtPays'>微信支付</view>
+   </block>
+</view> 
+
+<!-- 二级预约表 -->
+<view class='paylifeTheme {{animationFlag2?"close":"onpen"}}' animation="{{animationData2}}" hidden='{{animationFlag2}}'>
+
+   <view class='top' >
+      <view class='title'>{{currentTab==0?"付费学员免费听预约(已预约)":"订单信息："}}</view>
+      <!-- <view class='price'>{{currentTab==0?"":"￥3000"}}</view> -->
+   </view>
+   <view class='center'>
+       <block  wx:if="{{currentTab==0}}">
+        <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>联系方式：
+       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.contacts}}
+       <view></view>
+       {{RecordByUserData.contactNumber}}</view></view>
+        </block>
+       <block  wx:else>
+       <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>支付金额：
+       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.amount}}</view></view>
+       <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>支付时间：
+       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.createTime}}</view></view>
+       <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>听课人员：
+       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.contacts}}</view></view>
+       <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>联系方式：
+       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.contactNumber}}</view></view>
+       </block>
+       </view>
+
+       <view class='top'>
+       <view class='title'>联系客服</view>
+       </view>
+       <view class='center' >
+       <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>客服微信：</view>
+       <view class='paylifeTheme-textcolor'>{{RecordByUserData.weixinNum==null?"fmcat2":RecordByUserData.weixinNum}}
+       <view style='width:200rpx;height:200rpx;'>
+        <image src='{{RecordByUserData.weixinCode==null?"https://oixnydddk.qnssl.com/bill/1516160270593.png":RecordByUserData.weixinCode}}' style='width:200rpx;height:200rpx;'></image> 
+       </view>
+       </view></view>
+       </view>
+
+      <view class='top'>
+       </view>
+         <view class='contactInputBox'>
+        <view class='checkBox1' style='margin-top:25rpx;'>
+        <block  wx:if="{{currentTab==0}}">
+        <view style='color:red;margin-top:15rpx'>*</view>
+        <text >预约前请确保能前往听课，预约后失约将影响信用</text>
+        </block>
+        <block wx:else>
+             <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox color='#F8CE3A' checked='{{checked}}' /><text>我已阅读并同意</text>
+          </label>
+        </checkbox-group>
+        <text bindtap='topayAgreement' class='Agreement'>《付费学员服务协议》</text>
+        </block>
+        </view>
+      </view>
+   <block>
+   <view class='paylifeTheme-button'>
+   <button bindtap='closeProp'>关闭</button>
+   <button bindtap='copyweixin'>复制微信</button>
+   </view>
+   </block>
+</view> 
+
+
+<view class='FinancialList-fixbotbox'>
+<view class='iflike'>
+<icon class="collect {{state==1?'like':'unlike'}}" bindtap='ifliketap' ></icon>
+</view>
+<view bindtap='OpenFinance' data-key='0'>学员免费听</view>
+<view bindtap='Oneexperien' data-key='1'>单次体验</view>
+</view>

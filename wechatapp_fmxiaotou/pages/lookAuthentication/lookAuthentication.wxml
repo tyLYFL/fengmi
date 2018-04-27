@@ -1,0 +1,98 @@
+<form class='authInvestForm' bindsubmit='authenticationV2'>
+    <view class='authInvestPBox'>
+      <view class='authInvestPTitle'>
+        <view class='authInvestPTitleSin'></view>
+        <view>以往投资记录</view>
+      </view>
+       <view class='authInvestNumBox'>
+          <view>投资项目总数</view>
+          <input type='number' class='input' name="investTotalNum" disabled='{{isdisableFlag}}' placeholder='请输入投资项目数量' value='{{investProjectSum}}'></input>
+       </view>
+        <view class='authInvestNumBox'>
+          <view>历史投资总额</view>
+          <input type='number' class='input' name="historyTotalNum" disabled='{{isdisableFlag}}'  placeholder='请输入历史投资总金额(￥)' value='{{historyInvestSum}}'></input>
+          <text class='desc'>万</text>
+       </view>
+        <view class='authInvestNumBox'>
+          <view>退出项目总数</view>
+          <input type='number' class='input' name="OutTotalNum" disabled='{{isdisableFlag}}'  placeholder='请输入退出数量' value='{{exitProjectSum}}'></input>
+       </view>
+    </view>
+
+<!--经典投资案列-->
+    <view class='authInvestPBox borderNone'>
+      <view class='authInvestPTitle'>
+        <view class='authInvestPTitleSin'></view>
+        <view>经典投资案例</view>
+      </view>
+       <view class='authInvestNumBox'>
+          <view>项目名称</view>
+          <input type='text' class='input' name="investName" disabled='{{isdisableFlag}}'  placeholder='请输入投资项目名称' value='{{caseProjectName}}'></input>
+       </view>
+        <view class='authInvestNumBox'>
+          <view class='authTitle'>行业</view>
+          <picker bindchange="wayPickerChange" value="{{way}}" range="{{wayArry}}"  disabled='{{isdisableFlag}}'>
+            <input disabled='true' class='input'value="{{caseIndustryName}}" name="investWay" disabled='true'  placeholder='请选择行业'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+
+        <view class='authInvestNumBox'>
+          <view class='authTitle'>时间</view>
+          <picker bindchange="datePickerChange"  mode = 'date'  value="{{date}}"   disabled='{{isdisableFlag}}'>
+            <input  disabled='true' class='input'  value='{{date}}' name="investDate" disabled='true' placeholder='请选择时间'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+        
+        <view class='authInvestNumBox' >
+          <view>投资金额</view>
+          <view class='authInvestPM'>
+           <input type='number' class='MoneyTypeInput' placeholder-style="font-size:24rpx;" name="investMoney" placeholder='请输入金额' disabled='{{isdisableFlag}}' value='{{caseInvestMoney}}'></input>
+          <view class='wangTxt'>万</view>
+          <picker bindchange="moneyTypePickerChange" value="{{money}}" name="investMoneyType" range="{{moneyArry}}" disabled='{{isdisableFlag}}'>
+            <view class='moneyTypeTxt'>{{caseInvestMoneyUnit==1?"RMB￥":"US$"}}</view>
+            <text class='triangle_border_down'></text>
+          </picker>
+          </view>
+       </view>
+
+       <view class='authInvestNumBox'>
+          <view class='authTitle'>投资轮次</view>
+          <picker bindchange="TypePickerChange"  value="{{type}}" range="{{investTypeArry}}"  disabled='{{isdisableFlag}}'>
+            <input disabled='true' class='input' name="investType" disabled='true'  value='{{caseFinancingState}}' placeholder='种子轮'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+
+
+        <view class='authInvestNumBox'>
+          <view>投资回报</view>
+          <input type='number' class='input' name="investReturn"  disabled='{{isdisableFlag}}' placeholder='请输入投资回报倍数' value='{{caseInvestReward}}'></input>
+          <text class='descBei'>倍</text>
+       </view>
+    </view>
+
+
+
+<view class='certifitImgBox'  wx:for="{{imageArry}}" wx:key="index">
+  <view class='errorIcon1' bindtap='delImg' data-index='{{index}}' hidden='{{isdisableFlag}}'>
+    <view class='errorIcon'></view>
+  </view>
+  <image class='upload' src="{{item}}" mode='aspectFill' data-index='{{index}}' bindtap='preViewImg'></image>
+</view>
+
+ <view  hidden='{{isdisableFlag}}'  class='uploadImgBox' bindtap='didPressChooesImage' wx:if="{{imageArry.length==0}}" >
+  <image class='upload' src='http://7xoor9.com1.z0.glb.clouddn.com/upload.png' mode='widthFix'></image>
+</view>
+
+ <view  hidden='{{isdisableFlag}}' class='uploadImgBox' bindtap='didPressChooesImage' wx:if="{{imageArry.length<5 && imageArry.length>0}}" >
+  <image class='upload' src='http://7xoor9.com1.z0.glb.clouddn.com/uploadMore.png' mode='widthFix'></image>
+</view> 
+
+
+<view hidden='{{imageArry.length==5||isdisableFlag}}' style='margin-top:20rpx;'>{{imageArry.length==0?"可以上传1-5张图片证明":'还可上传'+(5-imageArry.length)+'张图片证明'}}</view>
+
+<button class='subcertification' data-id='{{id}}' form-type='submit' id='nextInvest' hidden='{{isdisableFlag}}'>提交认证</button>
+
+</form>

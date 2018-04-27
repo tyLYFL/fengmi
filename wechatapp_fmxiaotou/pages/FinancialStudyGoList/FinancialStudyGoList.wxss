@@ -1,0 +1,451 @@
+page{
+  width: 100%;
+  height: 100%;
+  background:rgb(245,245,245);
+}
+.FinancialList{
+margin-bottom: 150rpx;
+}
+.Financial-Img,.teacherDesc,.courseDesc {
+  background: #fff
+}
+.Financial-Img image{
+  width: 100%;
+  height: 200px;
+}
+.Financial-BigBox{
+width:708rpx;
+margin:0px auto;
+z-index:-11;
+
+}
+.Financial-titleB
+{
+  width: 100%;
+ background: #fff;
+}
+.Financial-titleBox
+{
+width:708rpx;
+display: flex;
+margin: 0px auto;
+ background: #fff;
+ padding: 20rpx 0rpx;
+}
+.study-stateBox{
+  margin:0rpx 20rpx 0rpx 14rpx;
+  position: relative;
+
+}
+.study-state{
+  width: 70rpx;
+  height: 70rpx;
+  line-height: 36rpx;
+  font-size: 29rpx;
+  border: 1px solid #e6ad15;
+  border-radius: 50%;
+  text-align: center;
+  padding: 10rpx;
+  color: #e6ad15;
+}
+.bo1{
+  width: 10rpx;
+  height: 10rpx;
+  position: absolute;
+  bottom:60rpx;
+  left:0px;
+  background: #fff;
+
+}
+.bo2{
+  width: 10rpx;
+  height: 20rpx;
+  position: absolute;
+  background: #fff;
+  bottom:5px;
+  right:0px;
+}
+.Financial-title{
+flex: 1;
+font-size: 30rpx;
+text-align: justify;
+line-height:45rpx
+}
+.Financial-details{
+  display: flex;
+  margin: 0rpx 0rpx 20rpx 0rpx;
+  height: 150rpx;
+  align-items: center;
+   background: #fff;
+   border-bottom:1rpx solid #ececec;
+}
+.Financial-detailChild{
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  color: #9B9B9B;
+}
+.Financial-detailChild:nth-of-type(1){
+  flex-basis: 70rpx;
+}
+.item-color{
+  padding-top:5rpx;
+  color: #F8D249;
+  margin-bottom: 25rpx;
+}
+.Fdetail-borderP{
+position: relative;
+}
+.Fdetail-borderL{
+  position: absolute;
+  top: 30rpx;
+  left:0px;
+  height: 40rpx;
+  border-left: 1px solid #BBBBBB;
+}
+.Fdetail-borderR{
+  position: absolute;
+  right: 0rpx;
+  top:30rpx;
+  height: 40rpx;
+  border-right: 1px solid #BBBBBB;
+}
+.teacherDesc,.courseDesc{
+  padding:20rpx 0px;
+}
+
+.DescTitle{
+  width: 100%;
+  font-size: 40rpx;
+  line-height:120rpx;
+  text-align: center;
+  font-weight: 600;
+}
+.Desccontent{
+  font-size: 26rpx;
+  text-indent: 10rpx;
+}
+
+
+
+
+/* 支付弹窗 */
+.payAgreement{
+  color: #969696;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 40rpx;
+}
+
+.paylifelongProp{
+    background-color:#fff;
+    color: #969696;
+    width: 100%;
+    position: fixed;
+    bottom: -654rpx;
+    left: 0;
+    z-index:999;
+}
+.close{
+  display: none;
+}
+.onpen{
+   display: block;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0 ,0, 0.5);
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 999;
+}
+.paylifelongProp .top{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0rpx;
+  border-bottom:1rpx solid #e7e7e7;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.paylifelongProp .price{
+  color: #E6AD14;
+  font-size: 42rpx;
+}
+.paylifelongProp .center{
+   margin-left: 30rpx;
+   margin-right: 30rpx;
+}
+.paylifelongProp .center .contact{
+  font-size: 26rpx;
+  padding-top:10rpx;
+
+}
+.contactInputBox{
+  margin-left: 45rpx;
+}
+.contactInputBox input{
+  border: 1rpx solid #e7e7e7;
+  margin: 30rpx 0rpx;
+  padding:20rpx; 
+}
+.checkBox1{
+  display: -webkit-flex;
+  display: flex;
+  align-items:center;
+}
+.checkBox1 text{
+  font-size: 26rpx;
+}
+.Agreement{
+  font-size: 26rpx;
+  color: skyblue;
+}
+.checkbox1 text:nth-child(3){
+  color: skyblue;
+}
+.wecahtPay{
+  background:#F8CE3A;
+  color: #fff;
+  text-align: center;
+  padding: 25rpx 0rpx; 
+  width: 80%;
+  margin: 40rpx auto;
+  border-radius: 10rpx;  
+}
+.title{
+  color: #666;
+}
+
+/* 听课预约记录弹窗 */
+
+/* 支付弹窗 */
+.paylifeTheme{
+    background-color:#fff;
+    color: #969696;
+    width: 100%;
+    position: fixed;
+    bottom: -654rpx;
+    left:0rpx;
+    z-index:999;
+}
+.closeTheme{
+  display: none;
+}
+.onpenTheme{
+   display: block;
+}
+.paylifeTheme .top{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0rpx;
+  border-bottom:1rpx solid #e7e7e7;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.paylifeTheme .price{
+  color: #E6AD14;
+  font-size: 42rpx;
+}
+.paylifeTheme .center{
+   margin-left: 30rpx;
+   font-size: 26rpx;
+   margin-right: 30rpx;
+}
+.paylifeTheme-textBox{
+  display: flex;
+  line-height: 50rpx;
+}
+.paylifeTheme-textclass{
+  flex-basis: 150rpx;
+   color: #666;
+}
+.paylifeTheme-textcolor{
+  flex: 1;
+  color: #969696;
+}
+.paylifeTheme .contactInputBox{
+  margin-left: 45rpx;
+}
+.title{
+  color: #666;
+}
+.paylifeTheme-button{
+  color: #fff;
+  text-align: center;
+  width: 660rpx;
+  margin: 40rpx auto;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10rpx;  
+}
+.paylifeTheme-button button::after{  
+  border:none
+}  
+.paylifeTheme-button button:nth-of-type(1){
+  height: 80rpx;
+  line-height: 80rpx;
+  flex-basis:280rpx;
+  color: #FFDB60;
+  border: 1px solid #FFDB60;
+  background:#fff;
+  font-size:30rpx;
+}
+.paylifeTheme-button button:nth-of-type(2){
+  height: 80rpx;
+  line-height: 80rpx;
+  background:#FFDB60;
+  flex-basis:280rpx;
+  color: #fff;
+  font-size:30rpx;
+
+}
+
+
+.FinancialList-fixbotbox{
+  position: fixed;
+  background: #fff;
+  bottom: 0px;
+  left:0px;
+  height: 120rpx;
+  width: 100%;
+  display: -webkit-flex;
+  align-items: center;
+  justify-content: space-around;
+  font-size:30rpx;
+}
+
+.iflike{
+  flex-basis:120rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collect{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+}
+.like{
+  background: url(https://oixnydddk.qnssl.com/like.png) no-repeat;
+  background-size: 100% 100%;
+}
+.unlike{
+  background: url(https://oixnydddk.qnssl.com/unlike.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.FinancialList-fixbotbox view:nth-of-type(2){
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #333;
+  text-align: center;
+  color: #FFDB60;
+  border: 1px solid #FFDB60;
+  background:#fff;
+  border-radius: 10rpx;
+  
+}
+.FinancialList-fixbotbox view:nth-of-type(3){
+  width: 280rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #FFDB60;
+  text-align: center;
+  background:#FFDB60;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+
+/* 圆形进度条 */
+.circleProgress_wrapper{
+            width: 120rpx;
+            height: 120rpx;
+            margin: 0px auto;
+            position: relative;
+}
+
+.wrapper{
+            width: 60rpx;
+            height: 120rpx;
+            position: absolute;
+            top:0;
+            overflow: hidden;
+}
+.right{
+            right:0;
+}
+.left{
+            left:1px;
+}
+.circleProgress{
+            width: 96rpx;
+            height: 96rpx;
+            border:12rpx solid #EEEEEE;
+            border-radius: 50%;
+            position: absolute;
+            top:0;
+}
+.rightcircle{
+            border-top:12rpx solid rgb(255,219,96);
+            border-right:12rpx solid rgb(255,219,96);
+            right:0;
+            -webkit-transform: rotate(-135deg);
+}
+.leftcircle{
+            border-bottom:12rpx solid rgb(255,219,96);
+            border-left:12rpx solid rgb(255,219,96);
+            left:0;
+            -webkit-transform: rotate(-135deg);
+}
+.circleProgressNumBox{
+  position: absolute;
+  top:0rpx;
+  left:0px;
+}
+.circleProgressNum{
+  color: #e6ad14;
+  width: 120rpx;
+  height:120rpx;
+  font-size:10px;
+  position: relative;
+}
+.circleNum{
+height:40rpx;
+width:67rpx;
+position:absolute;
+top:14px;
+left:-1px;
+line-height:36rpx;
+display:block;
+text-align:right;
+
+}
+.circleborderBox{
+    width: 120rpx;
+    height:120rpx;
+display: table-cell;
+vertical-align :middle;
+}
+.circleborder{
+     width: 60rpx;
+     margin:0px auto;
+    border-bottom:1px solid #9B9B9B;
+    transform: rotate(-45deg);
+}
+.circlemath{
+height:40rpx;
+width:80rpx;
+position:absolute;
+bottom:12px;
+right:-12px;
+color:#9B9B9B;
+text-align:left;
+}

@@ -1,0 +1,35 @@
+page{
+  color: rgb(150, 150, 150);
+}
+
+.authEndImg{
+  width: 128rpx;
+  height: 128rpx;
+}
+.authResult{
+  margin-top: 100rpx;
+}
+
+ .foot_div{
+  	background-color: #F7F7F7;
+  	margin-top: 50px;
+  	padding-left: 20rpx;
+    padding-right: 20rpx;
+    padding-bottom: 40rpx;
+    border-radius: 6rpx;
+    margin-left: 20rpx;
+    margin-right: 20rpx;
+  }
+  .foot_div span{
+  	font-size: 34rpx;
+  	color: #000000;
+  }
+   .foot_div .font{
+   	font-size: 30rpx;
+   	color: #C0C0C0;
+   }
+
+.authInvestPeople{
+  width: 80%;
+  
+}

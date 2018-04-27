@@ -1,0 +1,375 @@
+page{
+  background-color:#fff;
+  width: 100%;
+  height: 100%;
+}
+.header{
+  position:fixed;
+  top:0rpx;
+  left:0rpx;
+  width:100%;
+  z-index:2;
+  background:#fff;
+  border-bottom:1rpx solid #e7e7e7;
+
+}
+.header.active{
+   /* height:463rpx; */
+}
+.rollTop{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx;
+  position:fixed;
+  left:0rpx;
+  top:0rpx;
+  z-index:1;
+  width:100%;
+  background:#fff;
+
+}
+.rollTop .rollTopL{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+}
+.rollTop .rollTopLInfo{
+  display: -webkit-flex;
+  display: flex;
+  margin-left: 20rpx;
+  flex-direction:column;
+
+}
+.rollTop .userHeadImg{
+  width: 100rpx;
+  height:100rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.rollTopLUserSatus{
+  color: #333;
+  font-size: 24rpx;
+}
+.rollTop .rollTopR view{
+  border: none;
+  outline: none;
+  background-color: #F8CE3A;
+  color: #fff;
+  font-size:30rpx;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  margin-right:57rpx;
+}
+
+.rollTop2{
+  height: 340rpx;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1rpx solid #e7e7e7;
+}
+
+.rollTop2 .rollTopL{
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  flex-direction:column;
+  margin-top:173rpx;
+
+}
+.rollTop2 .rollTopL .userHeadImg{
+  width: 50rpx;
+  height:50rpx;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+.rollTop2 .rollTopL .rollTopLInfo{
+  display:-webkit-flex;
+  display:flex;
+  margin-top:29rpx;
+  align-content:center;
+  align-items:center;
+  height: 100%;
+}
+.rollTop2 .rollTopLUserName{
+  font-size: 24rpx;
+  color: #484746;  
+}
+.rollTop2 .rollTopLUserSatus{
+  margin-top: 30rpx;
+}
+.rollTop2 .rollTopUserSig {
+  font-size: 25rpx;
+  color: #F8CE3A;
+  border: 1rpx solid #F8CE3A;
+  padding: 5rpx ;
+  border-radius:100rpx;
+  text-align: center;
+  width: 113rpx;
+}
+.rollTop2 .rollTopUserSig image{
+  width: 101rpx;
+  height: 23rpx;
+}
+.rollTop2 .rollTopR {
+  align-self: flex-end;
+  padding-right: 30rpx;
+  margin-bottom:26rpx;
+} 
+
+
+
+.swiper-tab{ 
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #e7e7e7;
+  line-height: 80rpx;
+  margin-top:184rpx;
+  position:fixed;
+  top:-7rpx;
+  left:0rpx;
+  width:100%;
+}  
+.swiper-tab.active{
+  margin-top:360rpx;
+}
+.swiper-tab-list{
+    font-size: 30rpx;
+    display: inline-block;
+    flex: 1;
+    color: #333;
+    text-align: center;
+    padding: 10rpx 0;
+    position: relative;
+    vertical-align: -webkit-baseline-middle;
+} 
+.swiper-tab-list text:nth-child(2){
+  vertical-align: middle;
+}
+.recommend{
+  padding:2rpx 3rpx;
+  border:1rpx solid #F8CE3A;
+  border-radius:8rpx;
+  margin-right:8rpx;
+  font-size:23rpx;
+  color:#F8CE3A;
+
+}
+
+.on{
+  color: #E6AD14;
+} 
+
+.on .line{
+    width: 20%;
+    margin: 0 auto;
+    border-bottom: 3rpx solid #E6AD14;
+    position: absolute;
+    bottom: 0rpx;
+    left: 50%;
+   transform: translateX(-50%);
+   transform: -webkit-translateX(-50%);
+}
+/* .swiper-box{ 
+  display: block;
+  width: 100%; 
+  height: 100%;
+  overflow: hidden;
+  margin-top:277rpx;
+}  
+.swiper-box.active{
+  margin-top:406rpx;
+}
+.swiper-box view{  
+    text-align: center;  
+} 
+*/
+.swiperItem{
+  text-align: center;
+}
+.swiperItemMargin1{
+  margin-top:191rpx;
+} 
+.swiperItemMargin2{
+  margin-top:371rpx;
+} 
+
+.payAgreement{
+  color: #969696;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 40rpx;
+}
+
+.paylifelongProp{
+    background-color:#fff;
+    color: #969696;
+    width: 100%;
+    position: fixed;
+    bottom: -654rpx;
+    left: 0;
+    z-index:999;
+}
+.close{
+  display: none;
+}
+.onpen{
+   display: block;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0 ,0, 0.5);
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 999;
+}
+.paylifelongProp .top{
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0rpx;
+  border-bottom:1rpx solid #e7e7e7;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+}
+.paylifelongProp .price{
+  color: #E6AD14;
+  font-size: 42rpx;
+}
+.paylifelongProp .center{
+   margin-left: 30rpx;
+   margin-right: 30rpx;
+}
+.paylifelongProp .center .contact{
+  font-size: 26rpx;
+  padding-top:10rpx;
+
+}
+.contactInputBox{
+  margin-left: 45rpx;
+}
+.contactInputBox input{
+  border: 1rpx solid #e7e7e7;
+  margin: 30rpx 0rpx;
+  padding:20rpx; 
+}
+.checkBox{
+  display: -webkit-flex;
+  display: flex;
+  align-items:center;
+}
+.checkBox text{
+  font-size: 26rpx;
+}
+.Agreement{
+  font-size: 26rpx;
+  color: skyblue;
+}
+.checkbox text:nth-child(3){
+  color: skyblue;
+}
+.wecahtPay{
+  background:#F8CE3A;
+  color: #fff;
+  text-align: center;
+  padding: 25rpx 0rpx; 
+  width: 80%;
+  margin: 40rpx auto;
+  border-radius: 10rpx;  
+}
+.title{
+  color: #666;
+}
+
+/*<!--弹出海报-->*/
+.propPosterBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0 ,0, 0.8);
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.propPosterPre{
+  position: relative;
+  width:70%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.propPosterBox canvas{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 10rpx;
+}
+.posterBtn{
+  position: absolute;
+  bottom:-5%;
+  right:1rpx;
+  width:100%;
+  display:-webkit-flex;
+  justify-content:space-between;
+
+}
+.posterBtn image{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* 学员按钮 */
+.bottom-item{
+  width: 100%;
+  height: 120rpx;
+  display: -webkit-flex;
+  position: fixed;
+  bottom:0px;
+  left:0px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 30rpx;
+  background: #fff;
+}
+.bottom-item-child{
+   width: 320rpx;
+   height: 80rpx;
+   border:1px solid #FFDB60;
+   color: #FFDB60;
+   display: -webkit-flex;
+   align-items: center;
+   border-radius: 10rpx;
+   justify-content: center
+}
+.bottom-item-child:nth-last-child(1){
+  background: #FFDB60;
+  color: #fff;
+}
+.bottom-item-active{
+   border:1px solid #FFDB60;
+   background: #FFDB60;
+   color: #fff;
+}
+.bottom-itemImg{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right:20rpx;
+}

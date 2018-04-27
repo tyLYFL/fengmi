@@ -1,0 +1,4 @@
+<view style='height:100%;width:100%;'>
+  <web-view wx:if="{{canIUse}}" src="{{src}}" bindmessage='getMsg'></web-view>
+   <view class='noData' wx:else>当前微信版本过低，请升级到最新微信版本后重试。</view> 
+</view>

@@ -1,0 +1,71 @@
+<view class="wxpayTitle">
+  <view class='Titleline'></view>
+  <text class='wxpayTitleTxt'>投资回报</text>
+</view>
+<view class='wxpayDetail'>
+ <text>{{json.shareTitle}}</text>
+</view>
+
+<!--份额个数-->
+<view class='wxpayPrices' wx:if='{{json.equityShareType==1}}'>
+ <view class='wxpayPricesL'>
+    <text>选择份数</text>
+    <text style='margin-left:20rpx;'>{{reservable}}</text>
+ </view>
+  <view class='wxpayPricesR'>
+    <view class='wxpayPricesRT'>
+      <view class='jianBtn' bindtap='changejianNum'>
+          <icon class='iconfont icon-jian-copy' style='font-size:15px;margin-top:6rpx;'></icon>
+      </view>
+      <view class='wxpayPricespric'>
+        <!-- <picker bindchange="bindPickerChange" value="{{amount}}" range="{{array}}"> -->
+          <view>{{amount}}</view>
+        <!-- </picker> -->
+        <!-- <view class='triangle_border_down'></view> -->
+      </view>
+      <view class='jiaBtn'  bindtap='changejiaNum'>
+        <icon class='iconfont icon-jia' style='font-size:15px;margin-top:10rpx;'></icon>
+      </view>
+    </view>
+    <view class='wxpayPricesRB' style='margin-right:30rpx;'>
+      个人还可选{{reservableNum<0?"0":reservableNum}}份
+    </view>
+ </view>
+</view>
+
+<!--股权份额-->
+<view class='followInvestPrice' wx:else>
+  <input type='number' placeholder='意向投资金额' placeholder-class='followInvestNamePlace' bindinput='getamount'  maxlength='3'></input>
+  <view class='followInvestW'>万</view>
+</view>
+
+
+
+<view class='followInvestName'>
+  <input type='text' placeholder='跟投人姓名' placeholder-class='followInvestNamePlace' bindblur='getinvestPeople'></input>
+</view>
+
+<view class='followInvestWechat'>
+  <input type='text' placeholder='微信号' bindblur='getwechatNumber'></input>
+</view>
+
+
+<view class='followInvestPhone'>
+  <input type='number' placeholder='手机号' maxlength='11' bindinput='getcontactWay'></input>
+
+  <view bindtap="vcode" class="sendVcode {{isyellow}}" wx:if="{{isvcode}}">发送验证码</view>
+  
+  <view class="timeDown" wx:else >{{v}}s后重新发送</view>
+</view>
+
+<view class='followInvestWechat'>
+  <input type='number' placeholder='验证码' focus='{{focusFlag}}' bindinput='getCodeNum'></input>
+</view>
+
+<view class='wxpayFooter'>
+  <!-- <view class='wxpayFooterPrice'>预约金:<text>￥{{json.equityShareType==1?json.totalFee*amount:json.totalFee}}</text></view> -->
+  <view class='wxpayFooterPrice'>1、成为付费学员后在学籍有效期内项目跟投免收取跟投服务费用；</view> 
+  <view class='wxpayFooterPrice'>2、项目跟投成功后收取20%的carry；</view> 
+  <view class='wxpayFooterPrice'>3、提交跟投相当于投资意向登记，最终以签定协议为准。</view> 
+  <button type='primary' class='wxpayBtn' plain='true' bindtap="{{delay?'findByOrderSavenFn':''}}">确认</button>
+</view>

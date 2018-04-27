@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/roll/roll",
+    "pages/myCenter/myCenter",
+    "pages/AuthEnd/AuthEnd",
+    "pages/Certified/Certified",
+    "pages/uploadCertification/uploadCertification",
+    "pages/authInvestPeople/authInvestPeople",
+    "pages/investHobby/investHobby",
+    "pages/lookAuthentication/lookAuthentication",
+    "pages/authInvestPeopleEnd/authInvestPeopleEnd",
+    "pages/realname/realname",
+    "pages/rule/rule",
+    "pages/pdf/pdf",
+    "pages/wxpay/wxpay",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/news/news",
+    "pages/tabBar/tabBar",
+    "pages/followInvest/followInvest",
+    "pages/InvestProjectCollect/InvestProjectCollect",
+    "pages/InvestProjectfollow/InvestProjectfollow",
+    "pages/detail/detail",
+    "pages/userAgreement/userAgreement",
+    "pages/payAgreement/payAgreement",
+    "pages/aboutUs/aboutUs",
+    "pages/FinancialStudyGoList/FinancialStudyGoList",
+    "pages/FinancialStudy/FinancialStudy",
+    "pages/FinancialStudyDetails/FinancialStudyDetails",
+    "pages/FinancialStudyDetailindex/FinancialStudyDetailindex"
+  ],
+  "tabBar": {
+    "color": "#989898",
+    "selectedColor": "#666666",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/tabBar/tabbar_invest_icon_n@2x.png",
+        "selectedIconPath": "images/tabBar/tabbar_invest_icon_s@2x.png",
+        "text": "小投"
+      },
+      {
+        "pagePath": "pages/FinancialStudy/FinancialStudy",
+        "iconPath": "images/tabBar/rollIcon_n.png",
+        "selectedIconPath": "images/tabBar/rollIcon_s.png",
+        "text": "财商"
+      },
+      {
+        "pagePath": "pages/myCenter/myCenter",
+        "iconPath": "images/tabBar/tabbar_mine_icon_n@2x.png",
+        "selectedIconPath": "images/tabBar/tabbar_mine_icon_s@2x.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "疯蜜小投",
+    "navigationBarTextStyle": "black",
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#ffffff"
+  }
+}

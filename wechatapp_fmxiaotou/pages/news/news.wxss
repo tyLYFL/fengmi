@@ -1,0 +1,73 @@
+/**引入tabbar的样式**/
+@import "../tabBar/tabBar.wxss";
+page{
+  width: 100%;
+  height: 100%;
+  font-family: "微软雅黑";
+  font-size: 14px;
+  color: gray;
+}
+.box{
+  margin-left: 15px;
+  box-sizing: border-box;
+}
+.box .single{
+  padding: 15px 10px 5px 0;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  justify-content: space-between;
+}
+.single .img{
+    flex: 1;
+}
+.single .img image{
+  width: 80rpx;
+  height: 80rpx;
+  display: block;
+}
+.single .dersc{
+  flex: 5;
+  display:flex;
+  flex-direction:column;
+  padding-left: 10px;
+  font-size: 12px;
+}
+.single .dersc .title{
+  color: rgb(150,150,150);
+  font-size: 16px;
+}
+.single .dersc .details,.single .dersc .price,.single .dersc .date{
+  height: 28px;
+  line-height:28px;
+}
+.single .dersc .details,.single .dersc .price{
+  color: rgb(50,50,50);
+}
+.single .dersc .detail{
+  padding-right: 5px;
+}
+.single .dersc .date{
+  font-size: 14px;
+  color: rgb(150,150,150);
+  margin-top: 10px;
+}
+.single .pic{
+  flex: 3;
+  display:flex;
+  width:100%;
+}
+.single .pic image{
+  width: 90%;
+  height: 66px;
+  margin-top: 20px;
+}
+.noMore{
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  color: rgb(150,150,150);
+}
+.nonews{
+  box-sizing: border-box;
+  margin-top: 200px;
+}

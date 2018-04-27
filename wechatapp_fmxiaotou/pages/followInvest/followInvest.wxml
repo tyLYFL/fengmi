@@ -1,0 +1,114 @@
+<view class='followTip' bindtap='showRiskTip'>
+  <icon class='iconfont icon-fengxian' style='font-size:40rpx;'></icon>
+  <text>风险提醒</text>
+</view>
+
+<block wx:for="{{projectRewards}}" wx:key="index">
+
+  <view class='followInvestBox' wx:if="{{item.equityShareType==1}}">
+    <view class='followInvestTop'>
+       <view class='AdvancePayment'>仅付费学员可投</view> 
+
+      <view class='followInvestShare'>已预约{{item.yetReservePropleNum==null?"0":item.yetReservePropleNum}}份/{{item.reservePeopleNum==null?"无限制":'剩余'+(item.reservePeopleNum-item.yetReservePropleNum)+'份'}}</view>
+    </view>
+    <view class='followInvestCenter'>
+      <view class='followInvestCenterTitle'>
+        <text>投资回报 | {{item.shareTitle}}</text>
+      </view>
+      <text class='followInvestCenterCon'>
+        {{item.shareContent}}
+      </text>
+    </view>
+    <view class='followInvestBottom'>
+      <button size='mini' style='{{isFollow||(item.reservePeopleNum-item.yetReservePropleNum)==0&&item.reservePeopleNum!=null?"background:#969696":""}}' id='followInvestBtn' plain='true' data-equityShareType='{{item.equityShareType}}' data-shareTitle='{{item.shareTitle}}' data-id='{{item.id}}'
+      data-reserveAmount='{{item.reserveAmount}}' data-reservePeopleNum='{{item.reservePeopleNum}}' data-copies='{{item.copies}}' data-yetReservePropleNum='{{item.yetReservePropleNum}}'  bindtap='towxpay' disabled='{{isFollow||(item.reservePeopleNum-item.yetReservePropleNum)==0&&item.reservePeopleNum!=null?true:false}}'>我要支持</button>
+    </view>
+  </view>
+
+
+  <view class='followInvestBox' wx:if="{{item.equityShareType==2}}">
+    <view class='followInvestTop'>
+       <view class='AdvancePayment'>仅付费学员可投</view> 
+      <view class='followInvestShare'>已预约{{item.alreadyBookedMoney==null?"0":item.alreadyBookedMoney}}万/目标{{item.financingAmount}}万</view>
+    </view>
+    <view class='followInvestCenter'>
+      <view class='followInvestCenterTitle'>
+        <text>投资回报 | {{item.shareTitle}}</text>
+      </view>
+      <text class='followInvestCenterCon'>
+        {{item.shareContent}}
+      </text>
+    </view>
+    <view class='followInvestBottom'>
+      <button size='mini' style='{{isFollow?"background:#969696":""}}' id='followInvestBtn' plain='true' data-equityShareType='{{item.equityShareType}}'  data-shareTitle='{{item.shareTitle}}' data-id='{{item.id}}'  data-reserveAmount='{{item.reserveAmount}}' bindtap='towxpay' disabled='{{isFollow}}'>我要支持</button>
+    </view>
+  </view>
+  </block>
+
+
+  <!--风险提示-->
+<view class='RiskPromptBox' wx:if='{{riskFlag==1}}'>
+  <view class='RiskPromptCon'>
+    <view class='RiskIcon'>
+      <icon class='iconfont icon-fengxian' style='font-size:30px;'></icon>
+    </view>
+    <view class='RiskTxt'>风险提示</view>
+    <view class='scrollRiskTxt'>
+     <view class="riskBox">
+        <view class="disc">
+            鉴于，上海疯蜜投资管理有限公司（下称“疯蜜投资营”）通过疯蜜官方微信公众号（fmforme）、疯蜜小投App手机软件客户端等其他平台（合称“平台”），旨在为投资人提供优质股权投资项目提供所需融资服务。 鉴于，股权投融资项目具有较高的风险，与债权类理财项目等投资有着本质的区别，为帮助投资人更好地理解平台相关股权融资项目的风险，根据中华人民共和国相关法律法规和《用户注册服务协议》及其他配套制度、规则与协议的有关规定，特制定本《投资风险提示书》。 在投资人接受《用户注册服务协议》并注册成为平台用户时，表明投资人已充分知晓、理解和接受本《投资风险提示书》以及平台相关股权融资项目的风险，并愿意自行承担一切风险。本《投资风险提示书》 的全部条款属于《用户注册服务协议》的一部分。
+        </view>
+        <view class='h3'>第一条 重要提示</view>
+        <view>
+            <view>1.1 平台交易规则与上海证券交易所、深圳证券交易所的业务规则及其他规则存在很大差别，在参与平台业务之前，请投资人务必认真阅读平台《用户注册服务协议》及其他相关制度、规则及协议。</view>
+            <view>1.2 疯蜜投资营和疯蜜小投投资平台虽然恪尽职守，履行诚实、审慎的义务，但在投资款项管理、运用过程中，仍然存在相关风险。疯蜜投资营和疯蜜小投投资平台不承诺保本和最低收益，也不对融资项目的成功率、投资人的投资、收益等事项作任何性质的担保或保证。</view>
+            <view>1.3 平台的相关融资主体拥有良好的市场发展潜力和收益前景，但该等主体大都处于初创期或盈利上升阶段，受宏观政策、行业形势等影响较大。虽然平台严格筛选股权投资项目，并执行平台风控机制，但项目方自身仍然可能存在管理体制不健全、风险欠控制等风险。因此平台所展示的项目适合风险识别、评估、承受能力与所投款项相适应的合格投资人，疯蜜投资营和疯蜜小投投资平台不对投资人由于投资项目失败所导致的投资损失承担任何责任。</view>
+            <view>1.4 虽然疯蜜投资营和疯蜜小投投资平台努力通过制定规则及后台审核等方式以促使项目方真实地披露相关信息，但平台对项目方所披露的信息的真实性、完整性、准确性、合法性、有效性和及时性不做任何性质的担保或保证。投资人对上述信息的理解和利用依赖于投资人的投资经验及自身独立的思考和判断，因此产生的任何损失疯蜜投资营和疯蜜小投投资平台不承担任何法律责任，须投资人自行负责。</view>
+            <view>1.5 平台所表述的任何有关项目方未来发展状况的任何观点，只是平台根据其已知信息的相关推断，仅供投资人参考之用，对疯蜜投资营和疯蜜小投投资平台不具有任何法律约束力。疯蜜投资营和疯蜜小投投资平台不为将来有关项目方发展程度做任何形式的保证与责任背书。 投资人不得就信赖该提供之资讯而制定的决策作为或不作为，向疯蜜投资营和疯蜜小投投资平台要求承担任何损失和责任，或要求任何赔偿和补偿。</view>
+            <view>1.6 虽然平台已经最大限度地采取了有效措施保护投资人的资料和投资活动的安全，但对于投资人因使用或无法使用平台各项服务所导致的任何直接、间接、衍生或特别的损害和损失，疯蜜投资营和疯蜜小投投资平台不应当承担任何法律责任。</view>
+            <view>1.7 投资人应当以自己合法拥有的资金认购项目收益权/股权/份额，不得非法汇集他人资金参与投资项目。由此产生的法律责任，由投资人自行承担。</view>
+            <view>1.8 投资人应当遵守国家有关法律法规。</view>
+            <view>1.9 由于平台的相关制度、规则仍在不断完善中，请投资人及时关注相关制度、规则的调整和更新并加以遵守。</view>
+        </view>
+        <view class='h3'>第二条 风险揭示</view>
+        <view>平台不能也没有义务为如下风险负责：</view>
+        <view>
+            <view>2.1 投资损失。股权投资项目投资为无担保的投资，若投资项目失败，很可能使投资人失去部分或全部投资资金，疯蜜投资营和疯蜜小投投资平台与项目方不承担返还任何投资金额的义务。</view>
+            <view>2.2 股权项目投资的固有风险。可能会出现项目发展不佳甚至因政策等因素不能进行经营的风险</view>
+            <view>2.3 流动性风险。投资人通过平台认购的股权项目收益权/股权/份额通常不能通过证券二级市场出售。</view>
+            <view>2.4 税收风险。中国目前也尚未出台要求金融平台管理人为自然人股权份额持有人代扣代缴个人所得税的规定。根据目前有效的法律规定，在进行收益分配时，股权份额持有人对本股权收益分配所得需自行申报纳税。但鉴于中国目前关于基金整体层面税收相关的法律法规尚不健全，不能排除未来国家相关部门出台规定要求平台管理人为自然人股权份额持有人强制代扣代缴个人所得税的可能性。</view>
+            <view>2.5 市场风险。
+                <view>
+                    <view>2.5.1 政策风险。因国家宏观政策（如货币政策、财政政策、行业政策、地区发展政策等）发生变化，导致市场价格波动而产生风险，并可能影响被投项目的受理、投资运作、清算等业务的正常进行，并导致项目收益降低甚至本金损失，也可能导致项目违反国家法律、法规或者其他合同的有关规定而导致项目被宣告无效、撤销、解除或提前终止等。</view>
+                    <view>2.5.2 经济周期风险。随经济运行的周期性变化，市场的收益水平也呈周期性变化。同时，经济周期影响资金市场的走势，给投资带来一定的风险。</view>
+                    <view>2.5.3 购买力风险。项目的收益分配将主要通过现金形式来分配，而现金可能因为通货膨胀的影响而导致购买力下降，从而使项目的实际收益下降。</view>
+                </view>
+            </view>
+            <view>2.6 信用风险。指投资及财产在交易过程发生交收违约，或者所投有限合伙企业出现违约、拒绝支付分配款项，都可能导致投资财产损失和收益变化。</view>
+            <view>2.7 主体风险。项目方的内部管理和外部决策不在平台的控制范围内， 平台只能在法律法规及平台制度、业务规则允许的范围内尽可能督促项目方向投资人进行完整的信息披露。因此，投资人将承担由于相关项目方业务风险造成的损失。</view>
+            <view>2.8 操作和技术风险。因平台、其他合作方或相关电信部门的互联网软硬件设备故障或失灵、或人为操作疏忽而全部或部分中断、延迟、遗漏、产生误导或造成资料传输或储存上的错误、或遭第三人侵入系统篡改或伪造变造资料等，以及众筹投资或者基金的各种交易行为或者后台运作中，可能有来自基金管理公司、注册登记机构、代销机构、证券交易所等因为技术系统的故障或者人为差错而影响交易的正常进行从而导致投资者的利益受到影响，疯蜜投资营和疯蜜小投投资平台将不承担任何责任。</view>
+            <view>2.9 管理风险：受被投项目管理人经验、技能、判断力、执行力等方面的限制，可能对项目的运作及管理造成一定影响，并因此影响投资人收益，甚至造成投资本金损失，由此造成的损失，疯蜜投资营和疯蜜小投投资平台将不承担任何责任。</view>
+            <view>2.10 违约风险：项目方是否有能力或有意愿完全履约不在平台的控制范围内，融资企业有可能不完全履行其义务而导致违约事件发生，投资人将面临违约而遭受损失的风险。</view>
+            <view>2.11 利率风险。因市场利率变化，可能会对投资人的实际收益产生影响。</view>
+            <view>2.12 不可抗力因素导致的风险。诸如地震、火灾、水灾等自然灾害以及战争、政府行为等不可抗力因素可能导致的损害，疯蜜投资营和疯蜜小投投资平台将不承担任何责任，投资人将承担由此导致的损失。</view>
+            <view>2.13 自身过错。因投资人过错可能导致自身损失，包括但不限于：决策失误、操作不当、遗忘或泄露密码、密码被他人破解、使用的计算机系统被第三方侵入、委托他人代理交易时他人恶意或不当操作而造成的损失。对此，疯蜜投资营和疯蜜小投投资平台将不承担任何责任，投资人将承担由此导致的损失。</view>
+            <view>2.14 其他疯蜜投资营和疯蜜小投投资平台无法预见、无法避免或无法控制的风险。</view>
+        </view>
+        <view class='h3'>第三条 其他事项</view>
+        <view>
+            <view>3.1 本《投资风险提示书》的最终解释权归疯蜜投资营和疯蜜小投投资平台所有。</view>
+            <view>3.2 未在本《投资风险提示书》定义的术语，与《用户注册服务协议》所定义的术语一致。 投资人承诺并保证已认真阅读本《投资风险提示书》，理解上文所揭示的所有风险，并愿意承担投资风险可能造成的损失，疯蜜投资营和疯蜜小投投资平台不对投资人的投资损失承担任何责任。 本《投资风险提示书》并不保证揭示投资人使用平台提供的在线投资服务进行投资所面临的全部风险。投资人参与此项业务前，应全面了解相关法律法规，认真阅读相关配套制度与规则，并根据投资人自身的投资目的、投资期限、投资经验、资产状况等情况自行判断是否具备相应的投资风险承受能力。</view>
+        </view>
+    </view>
+    </view>
+    <!-- <view class='chooseRiskTip'>
+      <icon class='iconfont icon-circle-checked'></icon>
+      <text>  下次不再提示</text>
+    </view> -->
+
+      <view class='RiskBtnBox'>
+      <!-- <view class='RiskBtnL'>取消</view> -->
+      <view class='RiskBtnR' bindtap='closeRisk'>确认</view>
+    </view>
+  </view>
+</view>

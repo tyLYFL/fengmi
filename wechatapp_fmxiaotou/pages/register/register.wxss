@@ -1,0 +1,64 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+.box{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 200px 40px;
+  box-sizing: border-box;
+}
+.phone,.identifying{
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  border-bottom: 1px solid #e7e7e7;
+}
+.phone input,.identifying input{
+  width: 100%;
+  height: 120rpx;
+  line-height: 120rpx;
+  font-family: 微软雅黑;
+  font-size: 12px;
+}
+.phone input{
+  font-size: 14px;
+}
+.identifying input{
+  width: 68%;
+  display: inline-block;
+  font-size: 12px;
+  padding: 0;
+  overflow: visible;
+}
+.identifying view{
+  display: inline-block;
+  width: 32%;
+  color:rgb(230,173,20);
+  font-size: 12px;
+}
+image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.login{
+  width: 100%;
+  margin-top: 20px;
+  background-color: #fff;
+  border-radius: 30px;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: 微软雅黑;
+  font-size: 14px;
+  color: gray;
+}
+.yellow{
+  background-color: #E6AD14;
+  color: #fff!important;
+  text-align: center;
+}

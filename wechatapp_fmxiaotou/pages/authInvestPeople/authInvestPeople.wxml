@@ -1,0 +1,81 @@
+<view class='headerTip' wx:if="{{isAuthenFlag==0}}">
+认证投资人后拥有投资项目的权益
+</view>
+<view style='height:80rpx;'  wx:if="{{isAuthenFlag==0}}"></view>
+
+<form class='authInvestForm' bindsubmit='authNext'>
+    <view class='authInvestPBox'>
+      <view class='authInvestPTitle'>
+        <view class='authInvestPTitleSin'></view>
+        <view>以往投资记录</view>
+      </view>
+       <view class='authInvestNumBox'>
+          <view>投资项目总数</view>
+          <input type='number' class='input' name="investTotalNum" placeholder='请输入投资项目数量'></input>
+       </view>
+        <view class='authInvestNumBox'>
+          <view>历史投资总额</view>
+          <input type='number' class='input' name="historyTotalNum" placeholder='请输入历史投资总金额(￥)'></input>
+          <text class='desc'>万</text>
+       </view>
+        <view class='authInvestNumBox'>
+          <view>退出项目总数</view>
+          <input type='number' class='input' name="OutTotalNum" placeholder='请输入退出数量'></input>
+       </view>
+    </view>
+
+<!--经典投资案列-->
+    <view class='authInvestPBox borderNone'>
+      <view class='authInvestPTitle'>
+        <view class='authInvestPTitleSin'></view>
+        <view>经典投资案例</view>
+      </view>
+       <view class='authInvestNumBox'>
+          <view>项目名称</view>
+          <input type='text' class='input' name="investName" placeholder='请输入投资项目名称'></input>
+       </view>
+        <view class='authInvestNumBox'>
+          <view class='authTitle'>行业</view>
+          <picker bindchange="wayPickerChange" value="{{way}}" range="{{wayArry}}">
+            <input disabled='true' class='input'value="{{way}}" name="investWay" placeholder='请选择行业'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+
+        <view class='authInvestNumBox'>
+          <view class='authTitle'>时间</view>
+          <picker bindchange="datePickerChange"  mode='date' value="{{date}}" range="{{dateArry}}">
+            <input  disabled='true' class='input' value='{{date}}' name="investDate" placeholder='请选择时间'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+        
+        <view class='authInvestNumBox' >
+          <view>投资金额</view>
+          <view class='authInvestPM'>
+            <input type='number' class='MoneyTypeInput' placeholder-style="font-size:24rpx;" name="investMoney" placeholder='请输入金额'></input>
+            <view class='wangTxt'>万</view>
+            <picker bindchange="moneyTypePickerChange" value="{{money}}" name="investMoneyType" range="{{moneyArry}}">
+              <view class='moneyTypeTxt'>{{money}}</view>
+              <text class='triangle_border_down'></text>
+            </picker>
+          </view>
+       </view>
+
+       <view class='authInvestNumBox'>
+          <view class='authTitle'>投资轮次</view>
+          <picker bindchange="TypePickerChange"  value="{{type}}" range="{{investTypeArry}}">
+            <input disabled='true' class='input' name="investType" value='{{type}}' placeholder='种子轮'></input>
+          </picker>
+          <text class='triangle_border_down'></text>
+       </view>
+
+
+        <view class='authInvestNumBox'>
+          <view>投资回报</view>
+          <input type='number' class='input' name="investReturn" placeholder='请输入投资回报倍数'></input>
+          <text class='descBei'>倍</text>
+       </view>
+    </view>
+     <button style='background:#FFDB60;color:rgb(100,100,100);margin-top:50rpx;' form-type='submit' id='nextInvest'>下一步</button>
+</form>

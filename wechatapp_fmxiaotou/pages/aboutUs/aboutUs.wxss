@@ -1,0 +1,79 @@
+page{
+  width: 100%;
+  height: 100%;
+  font-family: '微软雅黑';
+}
+.header{
+  width: 100%;
+  height: 260px;
+  position: relative;
+  text-align: center;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.logo{
+  position: absolute;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  left: 50%;
+  top: 20%;
+}
+.titleBox{
+  position: absolute;
+  width: 100%;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.name{
+  font-size: 20px;
+  margin-top: 20px;
+}
+.title{
+  font-size: 16px;
+  margin: 10px 0 10px 0;
+}
+.version{
+  font-size: 14px;
+  color: #ffffff;
+  background-color: black;
+  width: 50px;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+.one,.two,.three{
+  font-size: 14px;
+  padding: 10px 20px;
+  line-height: 20px;
+}
+.gongneng{
+  padding: 0 20px;
+  font-size: 14px;
+}
+.proName{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 20px 20px;
+}
+.top1,.top2,.top3{
+  padding: 0 20px;
+  font-size: 14px;
+}
+.top3 text,.top2 text,.top1 text{
+  font-family: 'Monotype Corsiva';
+  font-size: 28px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+.weixinNum{
+  color: #E6AD14;
+}
+
+

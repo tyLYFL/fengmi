@@ -1,0 +1,21 @@
+<view class="box">
+  <view class="single" wx:for="{{newsList}}" wx:key="index0" data-skipType='{{item.skipType}}' bindtap='toroll'>
+      <view class="img"><image src="../../images/news.png" mode='widthFix'></image></view>
+      <view class="dersc">
+        <view class="title">{{item.nickName}}</view>
+        <view class="detail" style='{{item.readFlag==0?"color:#000;":""}}'>{{item.content}}</view>
+          <!--<view class="price">拍得价格：<text>10000</text></view>-->
+        <view class="date">{{item.createTime}}</view>
+      </view>
+      <!-- <view class="pic"><image src="{{item.picture}}"></image></view> -->
+  </view>
+</view>
+<view class="noMore {{nonews}}">没有更多了...</view>
+
+<!-- 
+<view class='noData' wx:if="{{!projects}}">没有数据哦</view> -->
+
+<!-- <import src="../tabBar/tabBar.wxml"/>
+<view class="footer">
+    <template is="tab-bar" data="{{ dataForTabbar }}"/>
+</view> -->

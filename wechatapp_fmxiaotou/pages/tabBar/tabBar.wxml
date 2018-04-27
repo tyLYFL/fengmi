@@ -1,0 +1,73 @@
+
+<template name="tab-bar">
+  <view class="tab-bar">
+    <view class="tab-item"
+        wx:for="{{ dataForTabbar }}"
+        wx:for-item="tabItem"
+        wx:for-index="index"
+        wx:key="sTitle">
+      <template is="tab-item" data="{{ tabItem }}"></template>
+    </view>
+  </view>
+</template>
+
+<template name="tab-item">
+<!--绑定一个onTabItemTap方法-->
+  <view class="tab-content"   catchtap="onTabItemTap"  data-key="{{ tabItem.currentTab}}">
+    <!--tabBar图标-->
+    <view class="tab-icon">
+        <image src="{{ tabItem.sIconUrl }}"></image>
+    </view>
+    <!--tabBar标题-->
+    <view class="tab-title">
+      <text>{{ tabItem.sTitle }}</text>
+    </view>
+    <!--未读信息气泡-->
+    <view class="tab-bubble" wx:if="{{ tabItem.iCount > 0}}">
+        <text class="tab-count">{{ tabItem.iCount < 100? tabItem.iCount: 99+"+" }}</text>
+    </view>
+  </view>
+</template>
+
+ <!--开通学员之前的头部-->
+<template name="rollTopBefore">
+  <view class="rollTop">
+    <view class='rollTopL'>
+        <image src='{{userInfo.headpic||userInfo.avatarUrl|| "http://7xoor9.com1.z0.glb.clouddn.com/312612727989663389.png"}}' class='userHeadImg'></image>
+        <view class='rollTopLInfo'>
+            <view class='rollTopLUserName'>{{userInfo.nickname||userInfo.nickName}}</view>
+            <view class='rollTopLUserSatus'>当前未开通</view>
+        </view>
+    </view>
+     <!-- <view class='rollTopR' bindtap='rollprop'>
+      <view>{{currentTab==0?"开通终身学员":"开通年度学员"}} </view>
+    </view>  -->
+  </view>
+</template>
+
+ <!--开通学员之后的头部-->
+<template name="rollTopAfter">
+  <view class="rollTop2" style='background:url( {{bgImg}});background-size: contain;'>
+    <view class='rollTopL'>
+        <image src='{{userInfo.headpic||userInfo.avatarUrl|| "http://7xoor9.com1.z0.glb.clouddn.com/312612727989663389.png"}}' class='userHeadImg'></image>
+        <view class='rollTopLInfo'>
+            <view class='rollTopLUserName'>{{userInfo.nickname||userInfo.nickName}}  |</view>
+            <view class='rollTopUserSig' wx-if='{{userInfo.isFmInvestor==2}}'>
+                <image src='http://7xoor9.com1.z0.glb.clouddn.com/naindu.png'></image>
+            </view>
+            <view class='rollTopUserSig' wx-if='{{userInfo.isFmInvestor==1||userInfo.isFmInvestor==3}}'>
+            <image src='http://7xoor9.com1.z0.glb.clouddn.com/zhongsheng.png'></image>
+            </view>
+        </view>
+        <view class='rollTopLUserSatus' wx-if='{{userInfo.isFmInvestor==2}}'>{{endTime}}</view>
+        <view class='rollTopLUserSatus'  wx-if='{{userInfo.isFmInvestor==1}}'>终身有效</view>
+        <view class='rollTopLUserSatus'  wx-if='{{userInfo.isFmInvestor==3}}'>已预定,待客服联系</view>
+    </view>
+    <view class='rollTopR' bindtap='openMask'>
+       <image src='http://7xoor9.com1.z0.glb.clouddn.com/icon.png' style='width:40rpx; height:40rpx;'></image>
+    </view>
+  </view>
+</template>
+
+
+

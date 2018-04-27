@@ -1,0 +1,49 @@
+<view class="header">
+    <image src="../../images/about_bg.png" class="bg"></image>
+    <image src="../../images/about_logo.png" class="logo"></image>
+   <view class="titleBox">
+       <view class="name">疯蜜小投</view>
+       <view class="title">每年分红的小额跟投</view>
+       <!--<view class="version">v2.0.4</view>-->
+   </view>
+</view>
+<view class="first">
+    <view class='one'>
+        疯蜜，鼓励每个女性投资自己， live for me。
+    </view>
+    <view class="two">
+        创立于2014年初，总部设立于广州，海外以伦敦、悉尼，国内以北上广深、重庆、珠海、杭州等一二线城市为主要据点，以社群模式聚集了中国高净值人士。
+    </view>
+    <view class="three">疯蜜是每年分红的小额跟投平台，旗下有疯蜜微信公众号（ID:fmforme），疯蜜小投app，为项目与投资者服务。</view>
+    <!--<view class="three">-->
+        <!--疯蜜是每年分红的小额跟投平台，旗下有疯蜜微信公众号（ID:fmforme），疯蜜小投app，为项目与投资者服务。-->
+    <!--</view>-->
+    <view class="gongneng"> 疯蜜小投功能：</view>
+    <view>
+        <view>
+            <view class="top1"> <text>1/</text>快速获取头部项目的一手资讯</view>
+            <view class="top2"><text>2/</text> 认证投资人的项目投票与评分</view>
+            <view class="top3"><text>3/</text> 发表你的看法，分享你的投资逻辑</view>
+            <view class="top3"><text>4/</text> 多维度评估项目，训练投资思维方式</view>
+        </view>
+    </view>
+    <!--<view class="proName">热门项目</view>-->
+    <!--<view class="gongneng">-->
+        <!--<view>胡桃里：一年赚一个亿的消费升级</view>-->
+        <!--<view>奢分期：流水好到腾讯阿里都成为它的背景</view>-->
+        <!--<view>港汇板仔：最快6个月回本的中小样丝芙兰</view>-->
+        <!--<view>名创优品：开遍全球的快时尚品牌</view>-->
+        <!--<view>茉颂：和刘嘉玲成为生意合伙人</view>-->
+        <!--<view>InNail：黄晓明投资，高圆圆杨幂都喜欢的美甲店</view>-->
+        <!--<view>芭芭拉舞蹈：一年回本的儿童舞蹈培训</view>-->
+        <!--<view>爱提醒：唯一已赚钱的上门医疗项目</view>-->
+    <!--</view>-->
+    <view class="proName">联系方式：</view>
+    <view class="gongneng mb20">
+        <view>客服：疯小蜜<text class="weixinNum">(微信fmcat2)</text></view>
+        <view>商务合作：BD@fmsecret.com</view>
+        <view>加入我们：hr@fmsecret.com</view>
+        <view>工作时间：09:30-18:30</view>
+    </view>
+</view>
+<view style='height:80rpx;'></view>

@@ -1,0 +1,14 @@
+<view class="container">
+  <image src='http://7xoor9.com1.z0.glb.clouddn.com/authEnd.png' mode='widthFix' class='authEndImg'></image>
+  <view  class='authResult'>您已完成实名认证</view>
+  <view>认证时间：{{time}}</view>
+</view>
+
+<view class="foot_div">
+  <text style='color:#333;font-size:26rpx;'>
+    实名认证特权：
+  </text>
+  <text class='font'>实名认证提高安全保障，平台优先考虑跟投需求。</text>
+</view>
+
+<!-- <button class='authInvestPeople' style='background:#FFDB60;color:rgb(100,100,100);' bindtap='toauthInvestPeople' wx:if="{{isShowV!=0}}">进行认证投资人</button> -->

@@ -1,0 +1,80 @@
+<import src="../tabBar/tabBar.wxml"/>
+ 
+<view class='header {{userInfo.isFmInvestor==0?"":"active"}}'>
+  <template is="rollTopBefore" data="{{ userInfo,currentTab , bgImg,endTime}}" wx:if="{{userInfo.isFmInvestor==0}}"></template>  
+
+  <template is="rollTopAfter" data="{{ userInfo,currentTab , bgImg,endTime}}" wx:else></template> 
+  
+   <!-- <view class='swiper-tab {{userInfo.isFmInvestor==0?"":"active"}}' >
+      <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0"  bindtap="swichNav">
+      <text data-current="0"  class='recommend'>荐</text>
+      <text data-current="0" >终身学员(终身)</text>
+      <view data-current="0"  class='line'></view>
+      </view>
+      <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">年度学员(1年)
+        <view class='line'></view>
+      </view>
+  </view>  -->
+
+</view>  
+
+      <view class='swiperItem swiperItemOne {{userInfo.isFmInvestor==0?"swiperItemMargin1":"swiperItemMargin2"}}'>
+      
+      <block wx:for="{{memberPhotos}}" wx:key='index' wx:if="{{item.type==1}}">
+        <!-- <image  model="widthFix" bindload="imageLoad" lazy-load='true'></image> -->
+        
+      <image src='{{item.memberPhoto}}' bindload="imageLoad" data-index="{{ index }}" 
+      style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;"></image>
+      </block>
+      </view>  
+
+
+
+
+<view class='payAgreement'  bindtap='topayAgreement' wx:if="{{animationFlag}}">付费学员服务协议</view>
+
+  <view class='bottom-item' wx-if='{{bottomshow}}'>
+         <view class='bottom-item-child' data-current="0" bindtap='bootomItem'><image src='../../images/longstudy.png' class='bottom-itemImg'></image>终身学员</view>
+         <view class='bottom-item-child'  data-current="1" bindtap='bootomItem'><image src='../../images/yearstudy.png' class='bottom-itemImg'></image>年度学员</view>
+  </view>  
+
+<view style='height:120rpx;'></view>
+
+
+
+
+<view class='mask' hidden='{{animationFlag}}' bindtap='closeProp'></view>
+<view class='paylifelongProp {{animationFlag?"close":"onpen"}}' animation="{{animationData}}">
+   <view class='top'>
+      <view class='title'>{{currentTab==0?"支付定金（终身学员）":"支付学费（年度学员）"}}</view>
+      <view class='price'>￥20000</view>
+   </view>
+   <view class='center'>
+      <view class='contact {{currentTab==0?"":"close"}}'>联系方式</view>
+      <view class='contactInputBox'>
+        <input type='text' bindblur='getContactMan' placeholder='联系人' class='{{currentTab==0?"":"close"}}'  maxlength='4' minlength="2"></input>
+        <input type='number' bindblur='getContactPhone' placeholder='联系电话'  class=' {{currentTab==0?"":"close"}}'></input>
+        <view class='checkBox' style='margin-top:25rpx;'>
+        <checkbox-group bindchange="checkboxChange">
+          <label class="checkbox">
+            <checkbox color='#F8CE3A' checked='{{checked}}' /><text>我已阅读并同意</text>
+          </label>
+        </checkbox-group>
+        <text bindtap='topayAgreement' class='Agreement'>《付费学员服务协议》</text>
+        </view>
+      </view>
+   </view>
+   <view class='wecahtPay' bindtap='wxpayFMinvestor'>微信支付</view>
+</view> 
+
+
+<!--弹出海报-->
+<view class='propPosterBox' hidden='{{propPosterFlag}}'>
+   <view class='propPosterPre' style='height:{{winHeight}}px'>
+     <canvas canvas-id="shareCanvas" style="width:100%;height:100%"></canvas>
+      <view class='posterBtn'>
+        <image src='http://7xoor9.com1.z0.glb.clouddn.com/closeposter.png' bindtap='closeMask'></image>
+        <image src='http://7xoor9.com1.z0.glb.clouddn.com/download.png' bindtap='saveImg'></image>
+      </view>
+   </view>
+</view>
