@@ -1,3 +1,4 @@
+<scroll-view class="bigWrap"  scroll-y="true" scroll-top="{{scrollTop}}">
 <view class="FinStudy-box">
    <view class="FinStudy-nav">
    <view class="Financial {{currentTab==0 ? 'on' : ''}}" bindtap="SwitchNav" data-key="0" >提升财商
@@ -9,6 +10,10 @@
    </view>
    <view class='section-box'>
      <block class='Financial-box' wx:if="{{currentTab==0}}">
+     <view class="nulldata {{FinanceData.length==0?'':'nulldatahide'}}" >
+     <image src='../../images/nulldata.png' style='width:200rpx;height:200rpx;'></image>
+     </view>
+
      <view class='FinancialList'  wx:for="{{FinanceData}}" wx:key="index"    bindtap='tapList'      data-id='{{item.id}}'>
       <view class='Financial-Img'>
       <image src='{{item.financePic}}'  mode="widthFix"></image>
@@ -51,7 +56,7 @@
         </view>
         <view class='circleProgressNumBox'>
         <view class='circleProgressNum'>
-         <view class='circleNum'>{{item.appiontments/360*item.financeOverbook}}</view>
+         <view class='circleNum'>{{item.appiontments/360*item.financeOverbook|Int}}</view>
          <view class='circleborderBox'><view class='circleborder'></view></view>
          <view class='circlemath'>{{item.financeOverbook}}</view>
         </view>
@@ -64,7 +69,11 @@
      </block>
 
      <block class='Financial-box' wx:else  >
-     <view class='FinancialList'  wx:for="{{FinanceData1}}" wx:key="index"  bindtap='tapStruts'      data-id='{{item.id}}'>
+      <view class="nulldata {{FinanceData1.length==0?'':'nulldatahide'}}" >
+     <image src='../../images/nulldata.png' style='width:200rpx;height:200rpx;'></image>
+     </view>
+
+     <view class='FinancialList'  wx:for="{{FinanceData1}}" wx:key="index"  bindtap='tapStruts' data-id='{{item.id}}'>
 <view class='Financial-Img'>
       <image src='{{item.projectPic}}'  mode="widthFix"></image>
       </view>
@@ -82,3 +91,4 @@
      </block>
    </view>
 </view>
+</scroll-view>

@@ -10,33 +10,29 @@ Page({
     imageHeight: 0,
     FinanceData: [],
     FinanceData1: [],
+    scrollTop:0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (!app.globalData.token) {
-      console.log('不存在token')
-      wx.redirectTo({//如果没有登陆过则重定向到登录页面
-        url: '/pages/login/login'
-      })
-    }
-    if (app.globalData.token) {
-      this.reqFinanData(0);
-      this.reqFinanData1(0);
-    }
+    var that = this;
     this.setData(
       {
         currentTab: options.current,
       }
     )
   },
+
+
+
   SwitchNav: function (e) {
     var key = e.target.dataset.key;
     this.setData(
       {
         currentTab: key,
+        scrollTop: 0, 
       }
     )
   },
@@ -75,9 +71,10 @@ Page({
 
   reqFinanData: function (type) {
     var that = this;
+    console.log('token', app.globalData.token)
     //  请求财商课
     wx.request({
-      url: app.globalData.API[4] + '/finance/findFinanceList',
+      url: app.globalData.API[0]+ 'finance/findFinanceList',
       data: {
         tokenId: app.globalData.token
       },
@@ -98,7 +95,7 @@ Page({
         })
       },
       fail: function (err) {
-        console.log('err')
+        console.log(err)
       }
     })
 
@@ -106,9 +103,10 @@ Page({
 
   // 请求实战项目
   reqFinanData1: function (type) {
+    console.log('token', app.globalData.token)
     var that = this;
     wx.request({
-      url: app.globalData.API[4] + '/finance/findProjectPra',
+      url: app.globalData.API[0]+ 'finance/findProjectPra',
       data: {
         tokenId: app.globalData.token
       },
@@ -135,6 +133,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (!app.globalData.token) {
+      console.log('不存在token')
+      wx.redirectTo({//如果没有登陆过则重定向到登录页面
+        url: '/pages/login/login'
+      })
+    }
+    if (app.globalData.token) {
+      this.reqFinanData(0);
+      this.reqFinanData1(0);
+    }
 
   },
 

@@ -1,6 +1,9 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <view class='FinancialList'>
       <view class='Financial-titleB'>
+      <view class='iflike'>
+      <icon class="collect {{state==1?'like':'unlike'}}" bindtap='ifliketap' ></icon>
+      </view>
 <view class='Financial-Img'>
       <image src='{{FinanceData.projectPic}}' mode="widthFix"></image>
       </view>

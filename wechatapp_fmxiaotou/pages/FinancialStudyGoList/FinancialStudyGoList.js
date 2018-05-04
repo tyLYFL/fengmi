@@ -2,12 +2,11 @@ let wxparse = require("../../wxParse/wxParse.js");
 var app = getApp();
 const util = require('../../utils/util.js');
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-  Id:0,
+  Id:'',
   currentTab: 0,       
   animationData:{},
   animationFlag:true,
@@ -20,98 +19,152 @@ Page({
   Endstate:true,   //课程是否结束
   contactMan:'',   //预约联系人姓名
   contactPhone:'', //预约联系人电话
-  PayMan: '',   //预约联系人姓名
-  PayPhone: '', //预约联系人电话
   checked: false,  //付费服务协议
   newDate:'',     //现在时间
   haveweixinCode:'',
-  RecordByUserData:[]
+  RecordByUserData:[],
+  disabled1:false,
+  discolor:'',      
+  isFmInvestorDIyi:'',
+  textstate:true,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var isFmInvestorDIyi = app.globalData.userInfo.isFmInvestor;
     var that= this;
     var id = options.id;
-
     this.setData(
       {
-        Id: id
+        Id: id,
+        isFmInvestorDIyi: isFmInvestorDIyi
       }
     )
+
+  },
+
+  openload: function () {
+    var that = this;
     if (!app.globalData.token) {
       console.log('不存在token')
       wx.redirectTo({//如果没有登陆过则重定向到登录页面
         url: '/pages/login/login'
       })
     }
-    
+
     if (app.globalData.token) {
       wx.request({
-        url: app.globalData.API[4] + '/finance/findFinanceDetails',
-        data:{
-          financeId:id,
+        url: app.globalData.API[0] + 'finance/findFinanceDetails',
+        data: {
+          financeId: this.data.Id,
           tokenId: app.globalData.token
         },
         header: {
           'content-type': 'application/json'
         },
-        success:res=>{
+        success: res => {
           // 判断课程是否结束
           var Endstate = false;
           var newDate = Date.parse(new Date());
-          if (newDate > res.data.fmFinance.financeEndTime){
+          if (newDate > res.data.fmFinance.financeEndTime) {
             Endstate = false;
           }
-          var financeStartTime = util.dateCount3(res.data.fmFinance.financeStartTime,                         true)
+          var financeStartTime = util.dateCount3(res.data.fmFinance.financeStartTime, true)
           var financeEndTime = util.dateCount3(res.data.fmFinance.financeEndTime, false)
-          var appiontments = that.Overbook(res.data.fmFinance.appiontments, res.data.fmFinance.financeOverbook);
+          var appiontments = that.Overbook(res.data.fmFinance.appiontments,
+            res.data.fmFinance.financeOverbook);
           res.data.fmFinance.financeStartTime = financeStartTime;
           res.data.fmFinance.financeEndTime = financeEndTime;
           res.data.fmFinance.appiontments = appiontments;
-          
           wxparse.wxParse('oratorDesc', 'html', res.data.fmFinance.oratorDesc, this, 0);
           wxparse.wxParse('financeDesc', 'html', res.data.fmFinance.financeDesc, this, 0);
+
           this.setData(
             {
               FinanceData1: res.data.fmFinance,
               Endstate: Endstate,
               state: res.data.fmFinance.isCollect
-            } 
-          )
-        },
-        fail:err=>{
-          console.log(err)
-        }
-      })
-
-
-
-      //  获取学员预约听课信息
-      wx.request({
-        url: app.globalData.API[4] + '/finance/findFinanceReservationRecordByUserId',
-        data: {
-          tokenId: app.globalData.token,
-        },
-        header: {
-          'content-type': 'application/json'
-        },
-        success: res => {
-          var RecordByUserData = res.data.fmFinance
-          RecordByUserData.createTime = that.OnewDate(res.data.fmFinance.createTime)
-          this.setData(
-            {
-              RecordByUserData: RecordByUserData
             }
           )
+          if (that.data.FinanceData1.isOrder == 1) {
+            this.setData(
+              {
+                discolor: 1
+              }
+            )
+          }
+          if (that.data.FinanceData1.isOrder == 0 && that.data.isFmInvestorDIyi !==0){
+            
+            this.setData(
+              {
+                textstate: true,
+              }
+            )
+          }
+          else if (that.data.FinanceData1.isOrder == 0 && that.data.isFmInvestorDIyi == 0) {
+            this.setData(
+              {
+                textstate: true,
+              }
+            )
+          }
+          else if (that.data.FinanceData1.isOrder == 1 && that.data.isFmInvestorDIyi !== 0) {
+            this.setData(
+              {
+                textstate: true,
+              }
+            )
+          }
+          else{
+            this.setData(
+              {
+                textstate: false,
+              }
+            )
+          }
+
         },
         fail: err => {
           console.log(err)
         }
       })
     }
-    
+  },
+
+
+  //  获取学员预约听课信息
+
+  Reserveinformation: function (){
+    var that = this;
+
+  wx.request({
+    url: app.globalData.API[0] + 'finance/findFinanceReservationRecordByUserId',
+    data: {
+      projectId: this.data.Id,
+      tokenId: app.globalData.token,
+    },
+    header: {
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    success: res => {
+      if (res.data.fmFinance==undefined)
+      {
+        return false
+      }
+        var RecordByUserData = res.data.fmFinance
+        RecordByUserData.createTime = that.OnewDate(res.data.fmFinance.createTime)
+        this.setData(
+          {
+            RecordByUserData: RecordByUserData
+          }
+        )
+    },
+    fail: err => {
+      console.log('cuowu')
+    }
+  })
   },
 
 
@@ -211,9 +264,14 @@ Page({
   
   // 收藏
   ifliketap:function(){
-    var that =this;
+    var that = this;
     if (that.data.state==0){
-      that.data.state = 1
+      that.data.state = 1;
+      wx.showToast({
+            title: '关注成功',  
+            icon: 'none',  
+            duration: 2000  
+        });
       this.setData(
         {
           state: 1,
@@ -226,6 +284,11 @@ Page({
         {
           state: 0,
         })
+      wx.showToast({
+        title: '取消关注',
+        icon: 'none',
+        duration: 2000
+      });
       that.projectCollter(that.data.state)
     }
   },
@@ -239,8 +302,7 @@ Page({
         currentTab: 0,
       }
     )
-    var isFmInvestorDIyi = app.globalData.userInfo.isFmInvestor;// 是否疯蜜学员：0否，1疯蜜终生学员，2疯蜜年度学员,3已交定金学员
-    if (isFmInvestorDIyi==0)
+    if (that.data.isFmInvestorDIyi==0)
     {
         //  弹出未开通学籍提示
       wx.showModal({
@@ -265,12 +327,17 @@ Page({
       if (that.data.Endstate) {
         wx.showModal({
           title: '课程已结束',
-          showCancel:false,
-        });
+          content: '更多好课程，请持续关注疯蜜小投',
+          showCancel: false,
+          success: function (res) {
+            console.log('课程已结束')
+          }
+        })
         return false
       }
-      if (this.data.FinanceData1.isOrder==1)
+      if (this.data.FinanceData1.isOrder ==1)
       {
+        that.Reserveinformation();
         this.animationFn2();
       }
       else{
@@ -288,59 +355,73 @@ Page({
     if (that.data.Endstate) {
       wx.showModal({
         title: '课程已结束',
+        content: '更多好课程，请持续关注疯蜜小投',
         showCancel: false,
-      });
-      return false
-    }
-
-    var isFmInvestorDIyi = app.globalData.userInfo.isFmInvestor;// 是否疯蜜学员：0否，1疯蜜终生学员，2疯蜜年度学员,3已交定金学员
-
-
-    if (isFmInvestorDIyi == 0) {
-      that.setData(
-        {
-
-          currentTab: 1,
-        }
-      )
-      this.animationFn();
-    }
-    else{
-      wx.showModal({
-        title: '提示',
-        content: '您已是疯蜜财商学院付费学员，可预约免费听课',
-        confirmText: '免费听课',
         success: function (res) {
-          if (res.confirm) {
-          if (that.data.FinanceData1.isOrder == 1)
-          {
-            that.setData(
-              {
-
-                currentTab:1,
-              }
-            )
-            that.animationFn2();
-          }
-          else{
-            that.setData(
-              {
-
-                currentTab: 0,
-              }
-            )
-            that.animationFn();
-          }
-          }
-          else{
-            console.log('取消')
-          }
-         
-        },
-      });
+          console.log('课程已结束')
+        }
+      })
       return false
     }
-  },
+
+ 
+
+    
+    
+    if (that.data.FinanceData1.isOrder ==1){
+      if (that.data.isFmInvestorDIyi==0){
+        that.setData(
+          {
+
+            currentTab: 1,
+            disabled1: true,
+            checked: true,
+          }
+        )
+        this.animationFn2();
+      }
+      else{
+        wx.showToast({
+          title: '你已经免费预约过了',
+          icon: 'none',
+        });
+      }
+    }
+
+
+else{
+   
+      if (that.data.isFmInvestorDIyi == 0) {
+        that.setData(
+          {
+
+            currentTab: 1,
+          }
+        )
+        this.animationFn();
+      }
+
+      else {
+        wx.showModal({
+          title: '提示',
+          content: '您已是疯蜜财商学院付费学员，可预约免费听课',
+          confirmText: '免费听课',
+          success: function (res) {
+            if (res.confirm) {
+                that.setData(
+                  {
+
+                    currentTab: 0,
+                  }
+                )
+                  that.animationFn();
+              
+              }
+            }
+        });
+      }
+     }
+     },
 
   //打开付费学员服务协议
   topayAgreement: function () {
@@ -366,24 +447,10 @@ Page({
     })
   },
 
-  //获取付费联系人
-  getPayMan: function (e) {
 
-    var val = e.detail.value;
-    this.setData({
-      PayMan: val
-    })
-
-  },
-  //获取付费手机号
-  getPayPhone: function (e) {
-    var val = e.detail.value;
-    this.setData({
-      PayPhone: val
-    })
-  },
  
   judgeContact:function(Name,Phone){
+  
     if (Name == '') {
       wx.showToast({
         title: '请填写联系人',
@@ -439,24 +506,32 @@ Page({
 
   // 复制微信号
   copyweixin:function(){
+    var that = this;
     wx.setClipboardData({
       data: this.data.RecordByUserData.weixinNum,
       success: function (res) {
         wx.getClipboardData({
           success: function (res) {
             console.log(res.data) // data
+            wx.showToast({
+              title: '复制成功',
+              icon: 'none',
+              duration: 2000
+            });
+            that.closeProp();
           }
         })
       }
     })
   },
 
-  // 预约听课完成
+  // 预约听课
   getbotChild:function(){
     var that = this;
-    if (that.judgeContact(that.data.contactMan, that.data.contactPhone)==true){
+    if (that.judgeContact(that.data.contactMan, that.data.contactPhone) == true && this.data.FinanceData1.isOrder == 0){
       wx.request({
-        url:  app.globalData.API[4] + '/finance/addFinanceReservationRecord',
+        url:  app.globalData.API[0] + 'finance/addFinanceReservationRecord',
+        method: 'post',
         data: {
           projectId: that.data.Id,
           tokenId: app.globalData.token,
@@ -464,26 +539,38 @@ Page({
           contactNumber: that.data.contactPhone
         },
         header: {
-          'content-type': 'application/json'
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
         },
         success: res => {
           console.log('success')
-          that.animationFn2();
+          that.Reserveinformation()
+          that.openload();
+          that.animationFn2(); 
+          wx.showToast({
+            title: '预约成功',
+            icon: 'none',
+            duration: 2000
+          });
+          
         },
         fail:err=>{
           console.log('fail')
         }
       })
-     
+
     }
   },
 
   // 微信支付
   wecahtPays:function(){
     var that = this;
+
+    if (that.judgeContact(that.data.contactMan, that.data.contactPhone) == true) {
+
+
     var openId = app.globalData.openId || wx.getStorageSync('openId');
     var newDate = this.OnewDate();
-    if (this.judgeContact(this.data.PayMan, this.data.PayPhone) == true) {
+    if (this.judgeContact(this.data.contactMan, this.data.contactPhone) == true) {
       if (this.data.checked==false) {
         wx.showToast({
           title: '请阅读并同意协议',
@@ -503,7 +590,7 @@ Page({
           success: res => {
             var code = res.code;
             wx.request({
-              url: app.globalData.API[0] + '/user/weiXinMiniAuthorization',
+              url: app.globalData.API[0] + 'user/weiXinMiniAuthorization',
               method: "POST",
               dataType: "json",
               data: {
@@ -531,23 +618,25 @@ Page({
         openId = app.globalData.openId || wx.getStorageSync('openId');
 
       }
-      console.log(this.data.PayMan)
-      console.log(this.data.PayPhone)
+
+
+
+
       var param = {
         tokenId: app.globalData.token,
         openid: openId,
         body: '疯蜜学员支付',
-        totalFee: 1 * 100,
+        totalFee: this.data.FinanceData1.financeCost * 100,
         clientType: 3,
         orderType: 4,
         shareType: '',//1为终身 2为学度
         payType: 2,
         investId: this.data.Id,
-        investPeople: this.data.PayMan,
-        contactWay: this.data.PayPhone,
+        investPeople: this.data.contactMan,
+        contactWay: this.data.contactPhone,
       }
       wx.request({
-        url: app.globalData.API[4] + 'invest/saveUserInvestProjectFollowH5',
+        url: app.globalData.API[0] + 'invest/saveUserInvestProjectFollowH5',
         method: "POST",
         dataType: "json",
         data: param,
@@ -573,27 +662,30 @@ Page({
               'paySign': paySign,
               'success': function (res) {
                 console.log("调起支付成功");
-                wx.showToast({
-                  title: '支付成功',
-                })
-                that.animationFn2();
+                // wx.showToast({
+                //   title: '支付成功',
+                // })
+                that.Reserveinformation()
+                that.openload();
+                that.closeProp();
+                that.setData(
+                  {
+
+                    currentTab: 1,
+                    disabled1: true,
+                    checked: true,
+                    discolor: 1
+                  })
+                  that.animationFn2();
+
               },
               'fail': function (res) {
-                console.log('22', res)
+
                 wx.showToast({
                   title: '支付失败',
                 })
                 that.closeProp();
               },
-              'complete': function (res) {
-                console.log('1',res)
-                if (res.errMsg == "requestPayment:cancel") {
-                  wx.showToast({
-                    title: '支付失败',
-                  })
-                }
-                
-              }
             })
           } else {
             wx.showToast({
@@ -609,14 +701,13 @@ Page({
         })
       
       }
-
+    }
   },
    
   // 财商（课程、项目）收藏  
   projectCollter:function(state){
-    
    wx.request({
-     url: app.globalData.API[4] + "/finance/projectCollter",
+     url: app.globalData.API[0] + "/finance/projectCollter",
      data:{
        projectId: this.data.Id,
        tokenId: app.globalData.token,
@@ -643,7 +734,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log('isFmInvestorDIyi', this.data.isFmInvestorDIyi)
 
+    wx.showLoading({
+      title: '加载中...',
+    })
+    var that = this;
+    that.Reserveinformation()
+    that.openload();
+    wx.hideLoading();
   },
 
   /**

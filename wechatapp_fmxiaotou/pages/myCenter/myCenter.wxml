@@ -4,6 +4,11 @@
     <view class="shenfen"><image class='{{istouziren?"acOn":""}}' src="{{sex}}"></image><text class="name">{{userInfo. nickname}}</text>
       <image class="touziren" wx:if="{{istouziren}}" src='{{shatouzi}}'></image>
     </view>
+    
+    <view class='setcode' bindtap='setcode'>
+       <image src='../../images/Setting.png'></image>
+    </view>
+    <view class="security" bindtap='security'>安全认证</view>
 </view>
 <view class="proBox">
     <!-- <view class="want" bindtap="wantFollow">想跟投的项目 <span>{{userInfo.investprojectcount}}></span></view> -->

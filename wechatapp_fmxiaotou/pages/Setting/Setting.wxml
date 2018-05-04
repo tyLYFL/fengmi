@@ -1,0 +1,40 @@
+<view class="setBox">
+    <view class="want" bindtap='uploadfile'>头像 <view class='right'>  <icon class='iconfont icon-jiantou'></icon><image src='{{personal.headpic}}' mode="aspectFill" ></image></view> </view>
+    <view class="want" bindtap='namerdiao'>昵称 <view class='right' >{{personal.nickname}}<icon class='iconfont icon-jiantou'></icon></view> </view>    
+    <view class="want" bindtap='bindsexChange'>性别 
+    <view class='right'>
+    <icon class='iconfont icon-jiantou'></icon>
+      {{personal.sex==1?'男':'女'}}
+    </view> 
+    </view>    
+
+    <view class="want">年龄 
+    <view class='right'>
+      <picker bindchange="bindAgeChange" value="{{age}}"  mode="date">
+    <view class="picker" >
+    <icon class='iconfont icon-jiantou'></icon>
+      {{personal.age}}
+    </view>
+  </picker>
+    </view> 
+    </view>    
+
+   <view class="want" bindtap='mobile'>手机号 <view class='right' >{{personal.account}}<icon class='iconfont icon-jiantou'></icon></view> </view>    
+
+   <view class="want" bindtap='changepassword'>密码 <view class='right' >修改密码<icon class='iconfont icon-jiantou'></icon></view> </view>   
+</view>
+
+
+<!-- 性别选择弹出框 -->
+<view class='mask' hidden='{{animationFlag&&animationFlag1}}' bindtap='closeProp'></view>
+<view class='paylifelongProp {{animationFlag?"close":"onpen"}}' animation="{{animationData}}" hidden='{{animationFlag}}'>
+   <view class='btnnum' bindtap='sexradio' data-key="0">女</view>
+   <view class='btnnum' bindtap='sexradio' data-key="1">男</view>
+   <view class='btnnumfalse' bindtap='sexfalse'>取消</view>
+</view> 
+
+<view class='paylifelongProp {{animationFlag1?"close":"onpen"}}' animation="{{animationData1}}" hidden='{{animationFlag1}}'>
+   <view class='btnnum' bindtap='camera'>拍照</view>
+   <view class='btnnum' bindtap='picture'>手机相册</view>
+   <view class='btnnumfalse' bindtap='sexfalse'>取消</view>
+</view> 

@@ -163,7 +163,7 @@ Page({
                 passWord:appPassword
             },
             header: {
-                'content-type': 'application/x-www-form-urlencoded',
+                'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
             },
             success:function (res) {
                 console.log(res);

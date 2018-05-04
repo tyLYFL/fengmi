@@ -75,7 +75,18 @@ Page({
       })
     }
   },
-
+  // 进入设置
+  setcode:function(){
+    wx.navigateTo({
+      url: '../Setting/Setting',
+    })
+  },
+  // 进入安全认证
+  security: function () {
+    wx.navigateTo({
+      url: '../security/security',
+    })
+  },
   //进入投资偏好
   toInvestHobby: function () {
     wx.navigateTo({
@@ -102,9 +113,9 @@ Page({
   },
   getInfomation: function () {
     var that = this;
-    console.log(app.globalData.token)
+    console.log('11',app.globalData.token)
     wx.request({
-      url: app.globalData.API[0] + 'my/information',
+      url: app.globalData.API[2] + 'my/information',
       method: "POST",
       dataType: "json",
       data: {
@@ -116,8 +127,13 @@ Page({
       success: function (res) {
         console.log('获取用户的个人信息', res);
         var userinfo = res.data.information;
+        if (userinfo==undefined)
+        {
+          return false
+        }
         app.globalData.userInfo = userinfo;//存用户的信息
-        console.log('想跟投的项目', userinfo.investprojectcount)
+
+        // console.log('想跟投的项目', userinfo.investprojectcount)
         console.log("token", app.globalData.token)
         that.setData({
           userInfo: userinfo
@@ -271,6 +287,7 @@ Page({
       })
     }
     this.getInfomation();
+    console.log("token1", app.globalData.token)
   },
 
   /**

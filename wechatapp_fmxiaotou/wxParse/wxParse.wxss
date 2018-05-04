@@ -100,7 +100,6 @@ view:after
 .wxParse-img{
     /*background-color: #efefef;*/
     width: 708rpx!important;
-    overflow: hidden;
     float:left;
 }
 

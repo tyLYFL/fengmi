@@ -13,7 +13,9 @@ Page({
     DetailLikeopcity:1,
     scrollstate: true,
     scrollheight:0,
-    windowHeight1:0
+    windowHeight1:0,
+    scrollTop:0,
+    tatle:'',
   },
 
   /**
@@ -22,10 +24,8 @@ Page({
 
 
   onLoad: function (options) {
-
     this.reqFinanData(0);
     this.reqFinanData1(0);
-
   },
 
    SwitchNav:function(e){
@@ -33,6 +33,7 @@ Page({
      this.setData(
        {
          currentTab: key,
+         scrollTop: 0, 
        }
      )
    },
@@ -84,10 +85,9 @@ Page({
 
    reqFinanData:function(type){
      var that = this;
-
     //  请求财商课
      wx.request({
-       url: app.globalData.API[4] + '/finance/findFinanceList',
+       url: app.globalData.API[0] + 'finance/findFinanceList',
        data: {
        },
        header: {
@@ -97,14 +97,17 @@ Page({
          for (var i=0; i < res.data.fmFinances.length;i++)
          {
            var financeStartTime = util.dateCount3(res.data.fmFinances[i].financeStartTime,true)
+           var tatle = res.data.fmFinances[i].appiontments;
            var financeEndTime = util.dateCount3(res.data.fmFinances[i].financeEndTime, false)
+           
            var appiontments = that.Overbook(res.data.fmFinances[i].appiontments, res.data.fmFinances[i].financeOverbook);
            res.data.fmFinances[i].financeStartTime = financeStartTime;
            res.data.fmFinances[i].financeEndTime = financeEndTime;
            res.data.fmFinances[i].appiontments = appiontments;
          }
          that.setData({
-           FinanceData: res.data.fmFinances
+           FinanceData: res.data.fmFinances,
+           tatle: tatle
            })
        },
        fail: function (err) {
@@ -118,7 +121,7 @@ Page({
    reqFinanData1: function (type) {
      var that = this;
      wx.request({
-       url: app.globalData.API[4] + '/finance/findProjectPra',
+       url: app.globalData.API[0] + 'finance/findProjectPra',
        data:{
        },
        header: {
@@ -135,9 +138,12 @@ Page({
      })
    },
     
+    // 进入关注页面按钮
    animationLike: function (height){
-    
+  
      var that = this; 
+     if (this.data.DetailLikeopcity==1){
+
      if (height > that.data.scrollheight - that.data.windowHeight1-20)
      {
        console.log('2')
@@ -150,7 +156,8 @@ Page({
          scrollstate: true,
        })
      }
-     if (that.data.scrollstate==true){
+
+     if (that.data.scrollstate == true){
        console.log('1')
      that.setData({
        DetailLikeopcity: 0,
@@ -166,10 +173,20 @@ Page({
      },1000)
      }
      }
+     }
+     else{
+       console.log('5')
+
+       return false
+     }
    },
 
    scroll: function (event){
      var that =this;
+     that.setData({
+       scrollheight: event.detail.scrollHeight
+     })
+     this.animationLike(event.detail.scrollTop)
      wx.getSystemInfo({
        success: function (res) {
          that.setData({
@@ -177,10 +194,7 @@ Page({
          })
        }
      })
-     that.setData({
-       scrollheight: event.detail.scrollHeight
-     })
-     this.animationLike(event.detail.scrollTop)
+
    },
 
   /**
@@ -194,7 +208,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log()
+    this.reqFinanData(0);
+    this.reqFinanData1(0);
   },
 
   /**

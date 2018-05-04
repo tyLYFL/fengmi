@@ -1,0 +1,105 @@
+page{
+  background-color: rgba(245, 245, 245, 1);
+  width: 100%;
+  height: 100%;
+  font-family: 微软雅黑;
+  font-size: 14px;
+  color: #333;
+}
+.setBox{
+  margin-top: 10px;
+  width: 100%;
+  padding-left: 30rpx;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.setBox>view{
+  height: 90rpx;
+  line-height:90rpx;
+  border-bottom: 1rpx solid #e7e7e7;
+  position: relative;
+  overflow: hidden;
+}
+.setBox>view:nth-of-type(1){
+  height: 150rpx;
+  line-height:150rpx;
+}
+.setBox>view:nth-of-type(1) image{
+  float: right;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  line-height:150rpx;
+  margin-top:25rpx;
+}
+.setBox>view icon{
+float: right;
+}
+.setBox>view:nth-of-type(5){
+border-bottom: none;
+}
+.setBox .right{
+  width: 580rpx;
+  height:90rpx;
+  text-align:right;
+   float:right;
+  z-index: 111;
+  margin-right: 20rpx;
+  color: gray;
+}
+.picker{
+  float: right;
+  width: 650rpx;
+  height:90rpx;
+}
+
+.close{
+  display: none;
+}
+.onpen{
+   display: block;
+}
+.mask{
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0 ,0, 0.5);
+  position: fixed;
+  left: 0rpx;
+  top: 0rpx;
+  z-index: 999;
+}
+.paylifelongProp{
+    color: #969696;
+    width: 100%;
+    position: fixed;
+    bottom: -654rpx;
+    left: 0;
+    z-index:999;
+}
+.btnnum{
+  background:#fff;
+  color: #333;
+  text-align: center;
+  padding: 25rpx 0rpx; 
+  width: 80%;
+  margin: 0rpx auto;
+}
+.btnnum:nth-of-type(1){
+  border-top-left-radius: 10rpx;  
+  border-top-right-radius: 10rpx;  
+  border-bottom: 1px solid #c8c8c8;
+}
+.btnnum:nth-of-type(2){
+  border-bottom-left-radius: 10rpx;  
+  border-bottom-right-radius: 10rpx;  
+}
+.btnnumfalse{
+  background:#fff;
+  color: #F8CE3A;
+  text-align: center;
+  padding: 25rpx 0rpx; 
+  width: 80%;
+  margin: 10rpx auto 40rpx;
+  border-radius: 10rpx;  
+}
+

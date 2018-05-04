@@ -28,7 +28,12 @@
     "pages/FinancialStudyGoList/FinancialStudyGoList",
     "pages/FinancialStudy/FinancialStudy",
     "pages/FinancialStudyDetails/FinancialStudyDetails",
-    "pages/FinancialStudyDetailindex/FinancialStudyDetailindex"
+    "pages/FinancialStudyDetailindex/FinancialStudyDetailindex",
+    "pages/findpassword/findpassword",
+    "pages/security/security",
+    "pages/Setting/Setting",
+    "pages/SettingName/SettingName",
+    "pages/ChangePassword/ChangePassword"
   ],
   "tabBar": {
     "color": "#989898",

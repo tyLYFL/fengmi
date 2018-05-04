@@ -232,16 +232,16 @@ const setmsg = obj => {
 
 //计算时间戳月日展示
 function dateCount3(Daycount, day) {
-  var newDate = new Date();
-  newDate.setTime(Daycount);
-  var date1 = newDate.toLocaleDateString();
-  var datasplit = date1.split("/")
+  var newDate = new Date(Daycount);
+  var year = newDate.getFullYear();
+  var month = newDate.getMonth() + 1;
+  var day1 = newDate.getDate();
   var out = ''
   if (day) {
-    out = datasplit[1] + '月' + datasplit[2] + '日'
+    out = month + '月' + day1 + '日'
   }
   else {
-    out = datasplit[2] + '日'
+    out = day1 + '日'
   }
   return out;
 }

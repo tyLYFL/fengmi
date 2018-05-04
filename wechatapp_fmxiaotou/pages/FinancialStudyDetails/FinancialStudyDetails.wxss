@@ -51,7 +51,7 @@ position: relative;
   background: #fff;
   margin-bottom:20rpx;
 border-bottom:1rpx solid #ececec;
-
+position: relative;
 }
 .Financial-titleBox{
   width: 708rpx;
@@ -99,9 +99,16 @@ text-align: justify;
 line-height:45rpx
 }
 
-.teacherDesc,.courseDesc{
+.teacherDesc{
+  overflow: hidden;
   padding:20rpx 0px;
   background: #fff;
+}
+.courseDesc{
+  overflow: hidden;
+  padding:20rpx 0px;
+  background: #fff;
+  margin-bottom: 50rpx;
 }
 .DescTitle{
   width: 100%;
@@ -118,4 +125,28 @@ line-height:45rpx
   font-size: 26rpx;
   text-indent: 10rpx;
   margin:0px auto;
+}
+
+.iflike{
+  position: absolute;
+  right: 20rpx;
+  top:20rpx;
+  width:120rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collect{
+  width:70rpx;
+  height:65rpx;
+  display: block;
+}
+.like{
+  background: url(https://oixnydddk.qnssl.com/like.png) no-repeat;
+  background-size: 100% 100%;
+}
+.unlike{
+  background: url(https://oixnydddk.qnssl.com/unlike.png) no-repeat;
+  background-size: 100% 100%;
 }

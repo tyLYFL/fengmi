@@ -1,0 +1,71 @@
+page{
+  width: 100%;
+  height: 100%;
+}
+image{
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.box{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 150px 40px;
+  box-sizing: border-box;
+}
+.mobile,.verification,.password{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #e7e7e7;
+  font-size: 12px;
+  font-family: 微软雅黑;
+  position: relative;
+}
+.mobile input,.verification input,.password input{
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+}
+.authcode{
+  position: absolute;
+  top:0px;
+  right:0px;
+  color:#e6ad14;
+}
+.showPassword{
+  width:50rpx;
+  height:50rpx;
+  position: absolute;
+  top:14px;
+  right:0px;
+  z-index: 300;
+}
+.showPassword image{
+  width:50rpx;
+  height:50rpx;
+}
+.changetrue{
+  width: 100%;
+  margin-top: 20px;
+  background-color: #ffdb60;
+  border-radius: 30px;
+  color: #646464;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  font-family: 微软雅黑;
+  font-size: 14px;
+}
+.changetrue::after{
+  border: none;
+}
+.securityH3{
+  text-align: center;
+  font-size: 12px;
+  color: #969696;
+  line-height: 72rpx;
+}

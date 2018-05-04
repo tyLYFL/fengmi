@@ -58,6 +58,27 @@ page{
   padding: 0 8px;
   border-radius: 0rpx;
 }
+.header>.setcode{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top:10rpx;
+  right: 34px;
+}
+.header>.setcode images{
+  width: 50rpx;
+  height: 50rpx;
+}
+.header>.security{
+  padding: 2px 16rpx;
+  background: #45a177;
+  color: #fff;
+  border-radius:14rpx;
+  position: absolute;
+  top:210rpx;
+  right: 24rpx;
+}
+
 .proBox,.about{
   margin-top: 10px;
   width: 100%;

@@ -1,0 +1,12 @@
+<form bindsubmit='addUInvestPreference'>
+<view class="Name">
+    <input  type="text" maxlength="8" placeholder="新昵称"  bindinput="getName" value='{{Name}}' bindblur='hideclear'/>
+    <view class='clear {{clearstate==0?"clearstate":""}}' bindtap='clearval'>
+    <image src='../../images/Nameflase.png'></image>
+    </view>
+    <view class='num'><text style='color:#ffdb60'>{{Name.length}}</text>/8</view>
+    </view>
+<view class="box">
+    <button class="save" form-type='submit'>保存</button>
+</view>
+</form>

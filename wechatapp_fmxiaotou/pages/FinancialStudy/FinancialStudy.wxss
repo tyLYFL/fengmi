@@ -203,13 +203,13 @@ position: relative;
 }
 .circleNum{
 height:40rpx;
-width:67rpx;
+width:50rpx;
 position:absolute;
 top:14px;
-left:-1px;
+left:10px;
 line-height:36rpx;
 display:block;
-text-align:right;
+text-align:center;
 
 }
 .circleborderBox{
@@ -226,18 +226,16 @@ vertical-align :middle;
 }
 .circlemath{
 height:40rpx;
-width:80rpx;
+width:50rpx;
 position:absolute;
-bottom:12px;
-right:-12px;
+bottom:6px;
+right:11px;
 color:#9B9B9B;
-text-align:left;
+text-align:center;
 }
-
 .DetailLike{
   width:50rpx;
   height:50rpx;
-  transition: 1s all;
   opacity: 1;
 }
 .DetailLike image{

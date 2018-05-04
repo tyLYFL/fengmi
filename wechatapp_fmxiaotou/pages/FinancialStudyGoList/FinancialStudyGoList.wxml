@@ -44,7 +44,7 @@
         </view>
         <view class='circleProgressNumBox'>
         <view class='circleProgressNum'>
-         <view class='circleNum'>{{FinanceData1.appiontments/360*FinanceData1.financeOverbook}}</view>
+         <view class='circleNum'>{{FinanceData1.appiontments/360*FinanceData1.financeOverbook|Int}}</view>
          <view class='circleborderBox'><view class='circleborder'></view></view>
          <view class='circlemath'>{{FinanceData1.financeOverbook}}</view>
         </view>
@@ -75,25 +75,22 @@
 <view class='paylifelongProp {{animationFlag?"close":"onpen"}}' animation="{{animationData}}" hidden='{{animationFlag}}'>
    <view class='top'>
       <view class='title' >{{currentTab==0?"付费学员免费听预约":"支付学费（单次课程）"}}</view>
-      <view class='price'>{{currentTab==0?"":"￥3000"}}</view>
+      <view class='price'>{{currentTab==0?"":"￥"+FinanceData1.financeCost}}</view>
    </view>
    <view class='center'>
       <view class='contact'>联系方式</view>
       <view class='contactInputBox'>
 
-        <block  wx:if="{{currentTab==0}}">
+       
                 <input type='text'  placeholder='联系人' maxlength='4' minlength="2"  bindblur='getContactMan'></input>
         <input type='number' bindblur='getContactPhone' placeholder='联系电话' ></input>
-        
+         <block  wx:if="{{currentTab==0}}">
         <view class='checkBox1' style='margin-top:25rpx;'>
         <view style='color:red;margin-top:15rpx'>*</view>
         <text >预约前请确保能前往听课，预约后失约将影响信用</text>
         </view>
         </block>
         <block  wx:else>
-                <input type='text'  placeholder='联系人' maxlength='4' minlength="2"  bindblur='getPayMan'></input>
-        <input type='number' bindblur='getPayPhone' placeholder='联系电话' ></input>
-        
         <view class='checkBox1' style='margin-top:25rpx;'>
         <checkbox-group bindchange="checkboxChange">
           <label class="checkbox">
@@ -122,9 +119,10 @@
    <view class='center'>
        <block  wx:if="{{currentTab==0}}">
         <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>联系方式：
-       </view><view class='paylifeTheme-textcolor'>{{RecordByUserData.contacts}}
-       <view></view>
-       {{RecordByUserData.contactNumber}}</view></view>
+       </view><view class='paylifeTheme-textcolor'>
+       <view>{{RecordByUserData.contacts}}</view>
+       <view>{{RecordByUserData.contactNumber}}</view>
+       </view></view>
         </block>
        <block  wx:else>
        <view class='paylifeTheme-textBox'><view class='paylifeTheme-textclass'>支付金额：
@@ -161,7 +159,7 @@
         <block wx:else>
              <checkbox-group bindchange="checkboxChange">
           <label class="checkbox">
-            <checkbox color='#F8CE3A' checked='{{checked}}' /><text>我已阅读并同意</text>
+            <checkbox color='#F8CE3A' checked='{{checked}}' disabled="{{disabled1}}"/><text>我已阅读并同意</text>
           </label>
         </checkbox-group>
         <text bindtap='topayAgreement' class='Agreement'>《付费学员服务协议》</text>
@@ -182,5 +180,5 @@
 <icon class="collect {{state==1?'like':'unlike'}}" bindtap='ifliketap' ></icon>
 </view>
 <view bindtap='OpenFinance' data-key='0'>学员免费听</view>
-<view bindtap='Oneexperien' data-key='1'>单次体验</view>
+<view bindtap='Oneexperien' data-key='1' class='ontype {{discolor==1&&isFmInvestorDIyi==0?"discolor":""}}'>{{textstate?'单次体验':'体验记录'}}</view>
 </view>

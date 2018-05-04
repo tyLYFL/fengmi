@@ -604,6 +604,9 @@ openMask:function(){
     },800)
 
     var isFmInvestorDIyi = app.globalData.userInfo.isFmInvestor;// 是否疯蜜学员：0否，1疯蜜终生学员，2疯蜜年度学员,3已交定金学员
+    this.setData({
+      isFmInvestorDIyi: isFmInvestorDIyi
+    })
     var one = wx.getStorageSync('one');
     if (isFmInvestorDIyi == 1 && one != 2) {
       setTimeout(function () {

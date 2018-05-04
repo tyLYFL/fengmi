@@ -1,4 +1,4 @@
-<scroll-view class="bigWrap" id='sr'  scroll-y="true"  bindscroll="scroll"  >
+<scroll-view class="bigWrap" id='sr'  scroll-y="true"  catchscroll="scroll"  scroll-top="{{scrollTop}}">
 <view class="FinStudy-box">
    <view class="FinStudy-nav">
    <view class="Financial {{currentTab==0 ? 'on' : ''}}" bindtap="SwitchNav" data-key="0" >提升财商
@@ -56,7 +56,7 @@
         </view>
         <view class='circleProgressNumBox'>
         <view class='circleProgressNum'>
-         <view class='circleNum'>{{item.appiontments/360*item.financeOverbook}}</view>
+         <view class='circleNum'>{{item.appiontments/360*item.financeOverbook|Int}}</view>
          <view class='circleborderBox'><view class='circleborder'></view></view>
          <view class='circlemath'>{{item.financeOverbook}}</view>
         </view>
